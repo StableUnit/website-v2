@@ -1,30 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './LendingFeatures.css';
-import chainLogo from '@assets/images/lending/features/chain-icon.svg';
 import securityLogo from '@assets/images/lending/features/security-icon.svg';
-import desktopCheck from '@assets/images/lending/features/desktop-check-icon.svg';
 import uniswapLogo from '@assets/images/lending/features/uniswap-protocol-logo.png';
 import pendleLogo from '@assets/images/lending/features/pendle-protocol-logo.png';
 import auraLogo from '@assets/images/lending/features/aura-protocol-logo.png';
 
 const LendingFeatures: React.FC = () => {
   const [expandedCards, setExpandedCards] = useState<number[]>([]);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-  
+
+
+
   const toggleCard = (index: number) => {
-    setExpandedCards(prev => 
-      prev.includes(index) 
+    setExpandedCards(prev =>
+      prev.includes(index)
         ? prev.filter(item => item !== index)
         : [...prev, index]
     );
@@ -73,22 +61,22 @@ const LendingFeatures: React.FC = () => {
                     feature.title
                   )}
                 </h3>
-                <button 
+                <button
                   className="mobile-toggle-btn"
                   onClick={() => toggleCard(index)}
                   aria-label={expandedCards.includes(index) ? "Collapse" : "Expand"}
                 >
-                  <svg 
-                    width="16" 
-                    height="16" 
-                    viewBox="0 0 16 16" 
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
                     fill="none"
                     className={expandedCards.includes(index) ? 'rotated' : ''}
                   >
-                    <path 
-                      d="M8 3v10M3 8h10" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
+                    <path
+                      d="M8 3v10M3 8h10"
+                      stroke="currentColor"
+                      strokeWidth="2"
                       strokeLinecap="round"
                     />
                   </svg>

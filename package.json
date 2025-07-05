@@ -1,12 +1,12 @@
 {
-  "name": "stablecoin-react",
+  "name": "stableunit",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint stablecoin-react",
+    "lint": "eslint stableunit",
     "preview": "vite preview"
   },
   "dependencies": {

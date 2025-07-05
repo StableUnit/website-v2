@@ -2,56 +2,56 @@ import { useEffect, lazy, Suspense, Component, useState, useRef, useCallback } f
 import type { ReactNode } from 'react';
 import './App.css';
 import { initializeMobileTouchHandlers } from './utils/initializeMobileTouchHandlers.ts';
-import Header from '@components/Header/Header.tsx';
-import Hero from '@components/Hero/Hero.tsx';
-import Footer from '@components/Footer/Footer.tsx';
-import LoadingSpinner from '@components/LoadingSpinner/LoadingSpinner.tsx';
+import Header from '@components/Header/Header';
+import Hero from '@components/Hero/Hero';
+import Footer from '@components/Footer/Footer';
+import LoadingSpinner from '@components/LoadingSpinner/LoadingSpinner';
 
-const LendingSection = lazy(() => 
+const LendingSection = lazy(() =>
   Promise.all([
-    import('@components/LendingSection/LendingSection.tsx'),
+    import('@components/LendingSection/LendingSection'),
     new Promise(resolve => setTimeout(resolve, 100))
   ]).then(([moduleExports]) => moduleExports)
 );
 
-const LendingProtocol = lazy(() => 
+const LendingProtocol = lazy(() =>
   Promise.all([
-    import('@components/LendingProtocol/LendingProtocol.tsx'),
+    import('@components/LendingProtocol/LendingProtocol'),
     new Promise(resolve => setTimeout(resolve, 150))
   ]).then(([moduleExports]) => moduleExports)
 );
 
-const MarketStatistics = lazy(() => 
+const MarketStatistics = lazy(() =>
   Promise.all([
-    import('@components/MarketStatistics/MarketStatistics.tsx'),
+    import('@components/MarketStatistics/MarketStatistics'),
     new Promise(resolve => setTimeout(resolve, 200))
   ]).then(([moduleExports]) => moduleExports)
 );
 
-const HandCards = lazy(() => 
+const HandCards = lazy(() =>
   Promise.all([
-    import('@components/HandCards/HandCards.tsx'),
+    import('@components/HandCards/HandCards'),
     new Promise(resolve => setTimeout(resolve, 250))
   ]).then(([moduleExports]) => moduleExports)
 );
 
-const SecurityAudit = lazy(() => 
+const SecurityAudit = lazy(() =>
   Promise.all([
-    import('@components/SecurityAudit/SecurityAudit.tsx'),
+    import('@components/SecurityAudit/SecurityAudit'),
     new Promise(resolve => setTimeout(resolve, 300))
   ]).then(([moduleExports]) => moduleExports)
 );
 
-const Tokenomics = lazy(() => 
+const Tokenomics = lazy(() =>
   Promise.all([
-    import('@components/Tokenomics/Tokenomics.tsx'),
+    import('@components/Tokenomics/Tokenomics'),
     new Promise(resolve => setTimeout(resolve, 350))
   ]).then(([moduleExports]) => moduleExports)
 );
 
-const FAQ = lazy(() => 
+const FAQ = lazy(() =>
   Promise.all([
-    import('@components/FAQ/FAQ.tsx'),
+    import('@components/FAQ/FAQ'),
     new Promise(resolve => setTimeout(resolve, 400))
   ]).then(([moduleExports]) => moduleExports)
 );
@@ -61,8 +61,8 @@ interface ErrorBoundaryState {
   error?: Error;
 }
 
-class ErrorBoundary extends Component<{children: ReactNode}, ErrorBoundaryState> {
-  constructor(props: {children: ReactNode}) {
+class ErrorBoundary extends Component<{ children: ReactNode }, ErrorBoundaryState> {
+  constructor(props: { children: ReactNode }) {
     super(props);
     this.state = { hasError: false };
   }
@@ -112,13 +112,13 @@ function App() {
           const loader = document.getElementById('initial-loader');
           const root = document.getElementById('root');
           const body = document.body;
-          
+
           if (loader && root) {
             loader.classList.add('fade-out');
             root.classList.add('loaded');
-            
+
             body.classList.remove('loading');
-            
+
             setTimeout(() => {
               loader.remove();
             }, 500);
