@@ -1,0 +1,610 @@
+.security-audit-section {
+  padding: clamp(60px, 10vh, 100px) 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.security-container {
+  margin: 0 auto;
+  width: 100%;
+  padding-left: min(140px, max(20px, 9.72vw));
+  padding-right: min(140px, max(20px, 9.72vw));
+  box-sizing: border-box;
+}
+
+.security-header {
+  text-align: left;
+  margin-bottom: 80px;
+}
+
+.security-label {
+  color: #00B786;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: 'TT Interfaces', sans-serif;
+  line-height: 30px;
+  letter-spacing: 0;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.security-title {
+  font-size: 42px;
+  font-weight: 500;
+  font-family: 'TT Interfaces', sans-serif;
+  margin: 0;
+  color: #232523;
+  line-height: 110%;
+  letter-spacing: -0.03em;
+}
+
+.security-content {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 0;
+  align-items: stretch;
+  position: relative;
+}
+
+.security-content::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.security-content > *:first-child {
+  padding-right: 20px;
+}
+
+.security-content > *:last-child {
+  padding-left: 20px;
+}
+
+.security-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 
+    0 10px 25px -5px rgba(35, 37, 35, 0.1),
+    0 10px 10px -5px rgba(35, 37, 35, 0.04);
+  border: 1px solid #f1f5f9;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.security-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 20px 35px -5px rgba(35, 37, 35, 0.15),
+    0 10px 15px -5px rgba(35, 37, 35, 0.08);
+}
+
+.safety-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-image: url('../../assets/images/security-audit/shield_image_left_card.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: normal;
+  min-height: 500px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.security-right {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-left: 20px;
+}
+
+.bounty-card,
+.audit-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.safety-section {
+  position: absolute;
+  top: 40px;
+  left: 30px;
+  max-width: 400px;
+  z-index: 2;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.safety-title,
+.bounty-title,
+.audit-title {
+  font-size: 24px;
+  font-weight: 500;
+  font-family: 'TT Interfaces', sans-serif;
+  margin: 0 0 24px 0;
+  color: #232523;
+  line-height: 110%;
+  letter-spacing: 0;
+}
+
+.safety-title {
+  color: #4A4B4A;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+.bounty-title {
+  margin: 0 0 40px 0;
+}
+
+.audit-title {
+  margin: 0 0 20px 0;
+}
+
+.safety-description,
+.audit-description {
+  font-size: 18px;
+  font-family: 'TT Interfaces', sans-serif;
+  line-height: 140%;
+  color: #666666;
+  margin: 0 0 16px 0;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.safety-description {
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.audit-description {
+  color: #232523;
+  margin: 0 0 32px 0;
+}
+
+.highlight-green {
+  color: #00B786;
+  font-weight: 500;
+}
+
+.learn-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #232523;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: 'TT Interfaces', sans-serif;
+  font-weight: 500;
+  line-height: 160%;
+  letter-spacing: 0;
+  transition: all 0.2s ease;
+  text-shadow: none;
+  align-self: flex-start;
+  width: auto;
+  height: 32px;
+  white-space: nowrap;
+  margin-top: 0;
+}
+
+.learn-more-link:hover {
+  gap: 12px;
+}
+
+.arrow-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 100px;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.arrow-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.learn-more-link:hover .arrow-circle {
+  transform: translateX(4px);
+}
+
+.shield-visualization {
+  display: none;
+}
+
+.bounty-section {
+  width: 100%;
+}
+
+.bounty-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.bounty-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.bounty-item:last-child {
+  border-bottom: none;
+}
+
+.bounty-amount {
+  font-size: 24px;
+  font-weight: 500;
+  font-family: 'TT Interfaces', sans-serif;
+  color: #232523;
+  line-height: 110%;
+  letter-spacing: 0;
+  flex-shrink: 0;
+}
+
+.bounty-detail {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  font-family: 'TT Interfaces', sans-serif;
+  color: #232523;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 0;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+.arbitrum-icon,
+.sudao-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.arbitrum-icon img,
+.sudao-icon img {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+}
+
+.audit-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+}
+
+.audit-link {
+  color: #00B786;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color 0.2s ease;
+}
+
+.audit-link:hover {
+  border-bottom-color: #00B786;
+}
+
+.audit-logos {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 40px;
+  margin-top: auto;
+  margin-left: auto;
+  width: 277px;
+  height: 22px;
+}
+
+.audit-logo {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: auto;
+  width: 89px;
+  height: 22px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.audit-logo.decurity,
+.audit-logo.sherlock {
+  padding: 0;
+  min-width: auto;
+  width: 89px;
+  height: 22px;
+}
+
+.audit-logo span {
+  font-size: 14px;
+  font-weight: 700;
+  color: #666666;
+  letter-spacing: 0.5px;
+}
+
+.audit-logo.decurity img,
+.audit-logo.sherlock img {
+  width: 89px;
+  height: 22px;
+  object-fit: contain;
+  filter: grayscale(100%);
+}
+
+@media (max-width: 1200px) {
+  .security-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .security-content::before {
+    display: none;
+  }
+  
+  .security-content > *:first-child {
+    padding-right: 0;
+  }
+  
+  .security-content > *:last-child {
+    padding-left: 0;
+  }
+  
+  .audit-link {
+    padding: 0;
+  }
+
+  .safety-card {
+    order: -1;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-size: cover;
+    background-position: center;
+    padding: 0 !important;
+  }
+
+  .safety-section {
+    position: relative;
+    top: auto;
+    left: auto;
+    max-width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .security-right {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .security-audit-section {
+    padding: 60px 0;
+  }
+
+  .security-title {
+    font-size: clamp(24px, 7.48vw, 32px) !important;
+    font-weight: 500;
+  }
+  
+  .safety-title,
+  .bounty-title,
+  .audit-title {
+    font-size: clamp(15px, 4.67vw, 20px) !important;
+    font-weight: 500;
+  }
+  
+  .bounty-amount {
+    font-size: clamp(15px, 4.67vw, 20px) !important;
+    font-weight: 500;
+  }
+  
+  .bounty-detail {
+    font-size: clamp(12px, 3.74vw, 16px) !important;
+    font-weight: 500;
+  }
+  
+  .safety-description,
+  .audit-description {
+    font-size: clamp(12px, 3.74vw, 16px) !important;
+    font-weight: 400;
+  }
+
+  .security-content {
+    gap: 30px;
+  }
+
+  .security-card {
+    padding: 32px 24px;
+  }
+  
+  .security-card.safety-card {
+    padding: 0 !important;
+  }
+  
+  .audit-card {
+    padding: 0 !important;
+  }
+
+  .bounty-item {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    justify-content: space-between;
+  }
+
+  .bounty-detail {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    font-size: 14px;
+    gap: 8px;
+  }
+
+  .audit-logos {
+    flex-direction: row;
+    gap: 12px;
+    justify-content: space-between;
+  }
+
+  .audit-logo {
+    width: calc(50% - 6px);
+    min-width: auto;
+  }
+  
+  .audit-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 24px;
+    height: 100%;
+  }
+  
+  .audit-title {
+    text-align: left;
+    align-self: flex-start;
+  }
+  
+  .audit-description {
+    text-align: left;
+    margin: 0 0 24px 0;
+  }
+  
+  .audit-logos {
+    margin-top: auto;
+    align-self: flex-end;
+    width: auto;
+    gap: 8px;
+  }
+  
+  .audit-logo {
+    width: auto;
+    min-width: auto;
+    height: auto;
+    padding: 8px 16px;
+    border-radius: 8px;
+  }
+  
+  .audit-logo.decurity,
+  .audit-logo.sherlock {
+    padding: 8px 16px;
+    min-width: auto;
+    width: auto;
+    height: auto;
+  }
+  
+  .audit-link {
+    padding: 0;
+  }
+
+  .safety-card {
+    min-height: 350px;
+  }
+
+  .safety-section {
+    padding: 24px;
+  }
+
+  .security-right {
+    gap: 20px;
+  }
+  
+  .safety-text-content {
+    flex: 1;
+  }
+  
+  .safety-section .learn-more-link {
+    margin-top: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .bounty-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 20px 0;
+  }
+  
+  .bounty-detail {
+    justify-content: flex-start;
+    width: 100%;
+    font-size: 14px;
+  }
+  
+  .bounty-amount {
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .bounty-card {
+    padding: 20px !important;
+  }
+  
+  .bounty-title {
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+  
+  .bounty-item {
+    padding: 16px 0;
+  }
+  
+  .bounty-amount {
+    font-size: 18px !important;
+  }
+  
+  .bounty-detail {
+    font-size: 12px !important;
+  }
+  
+  .arbitrum-icon,
+  .sudao-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .arbitrum-icon img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .bounty-text {
+    white-space: normal;
+    word-break: break-word;
+  }
+}

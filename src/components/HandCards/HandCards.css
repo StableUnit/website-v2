@@ -1,0 +1,962 @@
+/* Performance optimizations mixins */
+.transform-3d {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.full-size {
+  width: 100%;
+  height: 100%;
+}
+
+.absolute-full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Hand Cards Section Layout */
+.hand-cards-section {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  background: rgb(247, 247, 247);
+  overflow: hidden;
+  margin-top: 0;
+  padding: 0;
+  will-change: auto;
+  scroll-margin-top: 0;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  contain: layout style paint;
+  scroll-behavior: smooth;
+}
+
+.hand-cards-section,
+.cards-inner,
+.scroll-card {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.hand-cards-wrapper {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.hand-fixed,
+.cards-scroll-container {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100vh;
+  height: 100dvh;
+  box-sizing: border-box;
+}
+
+.hand-fixed {
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: clamp(40px, 4vw, 60px) clamp(20px, 3vw, 40px) 20px min(140px, max(20px, 9.72vw));
+  background: linear-gradient(to right, rgb(247, 247, 247) 0%, transparent 100%);
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hand-img {
+  width: 100%;
+  max-width: clamp(300px, 35vw, 450px);
+  height: 100%;
+  flex: 1;
+  object-fit: contain;
+  margin-top: clamp(20px, 3vh, 40px);
+  object-position: bottom;
+}
+
+.hand-content {
+  text-align: left;
+  max-width: clamp(400px, 45vw, 600px);
+  width: 100%;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
+}
+
+.usd-pro-label {
+  color: #00B786;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0;
+  display: block;
+  margin-bottom: 8px;
+  font-family: 'TT Interfaces', sans-serif;
+}
+
+.hand-content h2 {
+  font-size: 42px;
+  font-weight: 500;
+  color: #232523;
+  margin: 0;
+  line-height: 110%;
+  letter-spacing: -3%;
+  font-family: 'TT Interfaces', sans-serif;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+}
+
+/* Cards Container and Scrolling */
+.cards-scroll-container {
+  right: 0;
+  overflow: hidden;
+  padding: 0;
+  contain: layout style paint;
+}
+
+.cards-inner {
+  position: absolute;
+  top: 0;
+  will-change: transform;
+  left: 0;
+  right: min(140px, max(20px, 9.72vw));
+  padding: clamp(60px, 8vh, 100px) 0 0 0;
+  -moz-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  contain: layout style;
+}
+
+/* Base Card Styles */
+.scroll-card {
+  background: white;
+  border-radius: clamp(12px, 1.5vw, 16px);
+  padding: clamp(24px, 3vw, 40px);
+  margin-bottom: clamp(16px, 2vw, 24px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  min-height: clamp(400px, 55vh, 60vh);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  will-change: transform, box-shadow;
+  contain: layout style paint;
+}
+
+.scroll-card:hover {
+  transform: translateX(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.scroll-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--card-color, #10B981);
+}
+
+.scroll-card h4 {
+  font-size: clamp(20px, 2.5vw, 24px);
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 12px 0;
+}
+
+.scroll-card p {
+  font-size: clamp(14px, 1.25vw, 18px);
+  color: #666;
+  margin: 0;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* Common Typography for Card Headers */
+.earn-header h3,
+.revenue-content h3,
+.censorship-content h3,
+.yield-content h3 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #232523;
+  margin: 0 0 16px 0;
+  line-height: 110%;
+  letter-spacing: 0;
+  font-family: 'TT Interfaces', sans-serif;
+}
+
+.earn-header p,
+.revenue-content p,
+.censorship-content p,
+.yield-content p {
+  font-size: 18px;
+  color: #666666;
+  line-height: 140%;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0;
+  font-family: 'TT Interfaces', sans-serif;
+}
+
+/* Special Card Styles - Common Properties */
+.earn-card,
+.revenue-card,
+.censorship-card,
+.yield-card {
+  padding: 0 !important;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.earn-card::before,
+.revenue-card::before,
+.censorship-card::before,
+.yield-card::before {
+  display: none;
+}
+
+/* Earn Card */
+.earn-card {
+  background: white !important;
+  min-height: clamp(400px, 50vh, 60vh);
+  height: auto;
+  justify-content: flex-start;
+}
+
+.earn-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: clamp(24px, 3vw, 40px);
+  z-index: 2;
+}
+
+.wallet-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.wallet-image,
+.waterfall-image,
+.yield-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: transparent;
+}
+
+.wallet-image {
+  border-radius: clamp(12px, 1.5vw, 16px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.balance-overlay {
+  position: absolute;
+  bottom: clamp(17%, 22%, 27%);
+  left: clamp(55%, 60%, 65%);
+  transform: translateX(-50%);
+  display: flex;
+  align-items: baseline;
+  gap: clamp(4px, 0.5vw, 6px);
+  z-index: 2;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+.balance-amount,
+.balance-currency {
+  font-size: clamp(16px, 2.2vw, 22px);
+  font-weight: 700;
+  color: #000;
+  line-height: 1;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Revenue Card */
+.revenue-card {
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.revenue-content,
+.yield-content {
+  position: absolute;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.revenue-content {
+  top: clamp(40px, 5vw, 60px);
+  left: clamp(40px, 5vw, 60px);
+  right: clamp(40px, 5vw, 60px);
+}
+
+.revenue-visual,
+.yield-visual {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.yield-visual {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.waterfall-image,
+.yield-image {
+  display: block;
+  border-radius: clamp(12px, 1.5vw, 16px);
+}
+
+/* Censorship Card */
+.censorship-card {
+  align-items: flex-start;
+}
+
+.censorship-content {
+  position: relative;
+  z-index: 2;
+  padding: clamp(40px, 5vw, 60px);
+  width: clamp(50%, 55%, 60%);
+}
+
+.censorship-content p {
+  max-width: clamp(300px, 35vw, 400px);
+}
+
+.censorship-visual {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: clamp(60%, 65%, 70%);
+  height: 100%;
+  z-index: 1;
+}
+
+.lock-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+  background: transparent;
+}
+
+/* Yield Card */
+.yield-card {
+  justify-content: flex-start;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.yield-content {
+  position: relative;
+  padding: clamp(40px, 5vw, 60px);
+  max-width: clamp(400px, 50vw, 600px);
+}
+
+/* CTA Button */
+.bottom-cta {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 0px 0px 0;
+  margin-top: 20px;
+  margin-bottom: 0;
+  width: 100%;
+  align-self: flex-start;
+  position: relative;
+}
+
+.get-usd-pro-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 21px;
+  width: 155px;
+  height: 42px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -1%;
+  color: #00B786;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 200px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  font-family: 'TT Interfaces', sans-serif;
+  text-align: center;
+  justify-content: center;
+}
+
+.get-usd-pro-btn:hover {
+  border-color: #00B786;
+  transform: translateX(-4px);
+}
+
+.btn-arrow {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s ease;
+  color: #00B786;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.get-usd-pro-btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Media Queries */
+@media (min-width: 1441px) {
+  .hand-fixed {
+    padding-left: 140px;
+  }
+  
+  .cards-inner {
+    right: 140px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .hand-fixed {
+    padding: 40px 20px 20px min(140px, max(20px, 9.72vw));
+  }
+}
+
+@media (max-width: 1080px) and (min-width: 720px) {
+  .balance-overlay {
+    bottom: 30%;
+    left: 60%;
+  }
+  
+  .balance-amount,
+  .balance-currency {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hand-cards-section {
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  .hand-cards-wrapper {
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .hand-fixed,
+  .cards-scroll-container {
+    position: relative;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+    box-sizing: border-box;
+  }
+  
+  .hand-fixed {
+    height: 50vh;
+    min-height: 400px;
+    padding: 40px 20px 20px 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgb(247, 247, 247);
+  }
+  
+  .hand-content {
+    max-width: 100%;
+    margin-bottom: 30px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .hand-img {
+    max-width: 300px;
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    object-fit: contain;
+    object-position: center;
+  }
+  
+  .cards-scroll-container {
+    right: 0;
+    top: 0;
+    height: auto;
+    min-height: auto;
+    overflow: hidden;
+  }
+  
+  .cards-inner {
+    position: relative;
+    padding: 20px 0;
+    width: 400%;
+    max-width: none;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .scroll-card,
+  .bottom-cta {
+    width: calc(25% - 16px);
+    margin: 0 8px;
+    flex-shrink: 0;
+  }
+  
+  .scroll-card {
+    max-width: none;
+    min-height: 70vh;
+    height: auto;
+    box-sizing: border-box;
+  }
+  
+  .censorship-card {
+    display: flex;
+    flex-direction: row;
+    padding: 0 !important;
+    align-items: stretch;
+  }
+  
+  .censorship-content,
+  .censorship-visual {
+    width: 50%;
+  }
+  
+  .censorship-content {
+    padding: clamp(30px, 4vw, 40px);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    margin-bottom: 0;
+    position: relative;
+  }
+  
+  .censorship-visual {
+    position: relative;
+    height: auto;
+    top: auto;
+    right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+  }
+  
+  .lock-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0 16px 16px 0;
+    object-position: 60% center;
+    z-index: 3;
+    position: relative;
+  }
+  
+  .bottom-cta {
+    width: calc(25% - 16px);
+    margin: 0 8px;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 850px) {
+  .balance-overlay {
+    bottom: 30%;
+    left: 55%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hand-cards-section {
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  .hand-fixed {
+    padding: 30px 20px 15px 20px;
+    height: 45vh;
+    min-height: 350px;
+  }
+  
+  .hand-img {
+    max-width: 250px;
+  }
+  
+  .cards-inner {
+    padding: 15px 0;
+    width: 400%;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .scroll-card {
+    width: calc(25% - 16px);
+    margin: 0 8px;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    min-height: 60vh;
+  }
+  
+  .earn-card,
+  .revenue-card,
+  .censorship-card {
+    padding: 0 !important;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .earn-header {
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+  }
+  
+  .wallet-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex: 1;
+  }
+  
+  .revenue-card {
+    width: calc(25% - 16px);
+    margin: 0 8px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    background: transparent !important;
+    position: relative;
+  }
+  
+  .censorship-card {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+  
+  .censorship-content,
+  .censorship-visual {
+    width: 50%;
+  }
+  
+  .censorship-content {
+    padding: 30px;
+    box-sizing: border-box;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .censorship-visual {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  .lock-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0 16px 16px 0;
+    object-position: 60% center;
+    background: transparent;
+  }
+  
+  .yield-content {
+    padding: 30px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .bottom-cta {
+    justify-content: center;
+    padding: 20px 0 10px 0;
+    width: calc(25% - 16px);
+    margin: 0 8px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+  }
+  
+  .hand-content h2 {
+    font-size: clamp(24px, 7.48vw, 32px) !important;
+    font-weight: 500;
+  }
+  
+  .earn-header h3,
+  .revenue-content h3,
+  .censorship-content h3,
+  .yield-content h3 {
+    font-size: clamp(15px, 4.67vw, 20px) !important;
+    font-weight: 500;
+  }
+  
+  .earn-header p,
+  .revenue-content p,
+  .censorship-content p,
+  .yield-content p {
+    font-size: clamp(12px, 3.74vw, 16px) !important;
+    font-weight: 400;
+  }
+  
+  .balance-amount,
+  .balance-currency {
+    font-size: clamp(12px, 3.67vw, 15.73px) !important;
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 480px) {
+  .hand-cards-section {
+    width: 100vw;
+    max-width: 100%;
+  }
+  
+  .hand-fixed {
+    padding: 20px 16px 10px 16px;
+    height: 40vh;
+    min-height: 300px;
+  }
+  
+  .hand-content {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .hand-content h2 {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    max-width: 100%;
+  }
+  
+  .hand-img {
+    max-width: 200px;
+  }
+  
+  .cards-inner {
+    padding: 10px 0;
+  }
+  
+  .scroll-card {
+    padding: 15px;
+    min-height: 50vh;
+  }
+  
+  .earn-card,
+  .revenue-card,
+  .censorship-card {
+    padding: 0 !important;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .earn-header {
+    padding: 15px;
+  }
+  
+  .revenue-card {
+    width: calc(25% - 16px);
+    margin: 0 8px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    background: transparent !important;
+    position: relative;
+  }
+  
+  .censorship-content {
+    padding: 20px;
+  }
+  
+  .yield-content {
+    padding: 20px;
+  }
+  
+  .balance-overlay {
+    left: 62%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    align-content: end !important;
+    max-width: 90%;
+    overflow: hidden;
+  }
+  
+  .balance-amount,
+  .balance-currency {
+    font-size: 16px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 380px) {
+  .hand-content h2 {
+    font-size: clamp(24px, 6vw, 28px);
+    line-height: 1.2;
+    word-break: break-all;
+    overflow-wrap: anywhere;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+  }
+  
+  .hand-fixed {
+    padding: 15px 16px 8px 16px;
+  }
+  
+  .balance-overlay {
+    bottom: 25%;
+    left: 57%;
+    max-width: 85%;
+    gap: 3px;
+  }
+  
+  .balance-amount,
+  .balance-currency {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  .hand-content h2 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+  
+  .usd-pro-label {
+    font-size: 14px;
+  }
+  
+  .hand-fixed {
+    padding: 12px 16px 6px 16px;
+  }
+  
+  .balance-overlay {
+    bottom: 23%;
+    left: 57%;
+    max-width: 80%;
+    gap: 2px;
+  }
+  
+  .balance-amount,
+  .balance-currency {
+    font-size: 13px;
+  }
+}
+
+/* WebKit Performance Optimizations */
+@supports (-webkit-appearance: none) {
+  .cards-inner,
+  .scroll-card,
+  .cards-scroll-container {
+    -webkit-transform: translateZ(0);
+    -webkit-perspective: 1000;
+    transform: translateZ(0);
+  }
+  
+  .hand-cards-section {
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  .scroll-card img {
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: transform;
+    image-rendering: -webkit-optimize-contrast;
+  }
+  
+  .cards-inner {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  
+  .hand-cards-section,
+  .cards-scroll-container {
+    -webkit-overflow-scrolling: touch;
+  }
+}

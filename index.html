@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/assets/images/security-audit/stablecoin-logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stablecoin</title>
+    <style>
+      body.loading {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        position: fixed;
+        width: 100%;
+      }
+
+      #initial-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        background: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+        overflow: hidden;
+      }
+
+      #initial-loader.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .loader-logo {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 30px;
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.8;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .loader-spinner {
+        width: 50px;
+        height: 50px;
+        border: 3px solid rgba(16, 185, 129, 0.1);
+        border-top-color: #10B981;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .loader-text {
+        color: #0a0e0f;
+        font-family: 'TT Interfaces', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 16px;
+        margin-top: 20px;
+        opacity: 0.8;
+        animation: fadeInOut 2s ease-in-out infinite;
+      }
+
+      @keyframes fadeInOut {
+        0%, 100% {
+          opacity: 0.5;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .loader-logo {
+          width: 80px;
+          height: 80px;
+          margin-bottom: 20px;
+        }
+
+        .loader-spinner {
+          width: 40px;
+          height: 40px;
+        }
+
+        .loader-text {
+          font-size: 14px;
+          margin-top: 15px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .loader-logo {
+          width: 60px;
+          height: 60px;
+          margin-bottom: 15px;
+        }
+
+        .loader-spinner {
+          width: 35px;
+          height: 35px;
+          border-width: 2px;
+        }
+
+        .loader-text {
+          font-size: 12px;
+          margin-top: 12px;
+        }
+      }
+
+      #root {
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+      }
+
+      #root.loaded {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body class="loading">
+    <div id="initial-loader">
+      <svg class="loader-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="80" fill="none" stroke="#10B981" stroke-width="2" opacity="0.3"/>
+        <circle cx="100" cy="100" r="60" fill="none" stroke="#10B981" stroke-width="3" opacity="0.5"/>
+        <circle cx="100" cy="100" r="40" fill="none" stroke="#10B981" stroke-width="4" opacity="0.7"/>
+        <text x="100" y="110" font-family="'TT Interfaces', Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#10B981">$</text>
+      </svg>
+      <div class="loader-spinner"></div>
+      <div class="loader-text">Loading Stablecoin...</div>
+    </div>
+
+    <div id="root"></div>
+    
+    <script>
+    </script>
+    
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

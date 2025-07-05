@@ -1,0 +1,199 @@
+.touch-device {
+  button,
+  a,
+  .clickable,
+  [role="button"],
+  input[type="button"],
+  input[type="submit"],
+  .nav-link,
+  .join-button,
+  .form-button,
+  .modal-close,
+  .partner-logo,
+  .partner-item,
+  .scroll-card,
+  .feature-link,
+  .footer-link,
+  .get-usd-pro-button,
+  .hamburger,
+  .mobile-menu-close,
+  [data-touch-interactive="true"] {
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -khtml-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+    cursor: pointer !important;
+  }
+}
+
+@media (hover: none) and (pointer: coarse), 
+       (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
+       (max-width: 768px) and (min-resolution: 2dppx),
+       (max-width: 768px) and (min-resolution: 192dpi) {
+  
+  .nav-link:hover {
+    color: #0a0e0f !important;
+    transition: none !important;
+  }
+
+  .join-button:hover {
+    background-color: transparent !important;
+    color: #00B786 !important;
+    border-color: #00B786 !important;
+  }
+
+  .form-button:hover {
+    opacity: 1 !important;
+  }
+
+  .modal-close:hover,
+  .modal-close button:hover {
+    background-color: transparent !important;
+    color: inherit !important;
+  }
+
+  .partner-logo:hover {
+    filter: grayscale(100%) !important;
+    opacity: 0.6 !important;
+  }
+
+  .partner-item:hover {
+    opacity: 0.7 !important;
+  }
+
+  .scroll-card:hover {
+    transform: translateX(0) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  }
+
+  .feature-link:hover {
+    gap: 6px !important;
+  }
+
+
+  .footer-link:hover {
+    color: #666666 !important;
+  }
+
+  .get-usd-pro-button:hover {
+    border-color: #00B786 !important;
+    transform: translateX(0) !important;
+  }
+
+  .get-usd-pro-button:hover .arrow {
+    transform: translateX(0) !important;
+  }
+
+  .hamburger-close:hover,
+  .mobile-menu-close:hover {
+    background-color: transparent !important;
+  }
+}
+
+.touch-device .touch-active.nav-link,
+.touch-active.nav-link {
+  color: #00B786 !important;
+  transition: color 0.1s !important;
+}
+
+.touch-device .touch-active.join-button,
+.touch-active.join-button {
+  background-color: #00B786 !important;
+  color: white !important;
+  border-color: #00B786 !important;
+}
+
+.touch-device .touch-active.form-button,
+.touch-active.form-button {
+  opacity: 0.9 !important;
+}
+
+.touch-device .touch-active.modal-close,
+.touch-device .modal-close.touch-active button,
+.touch-active.modal-close,
+.modal-close.touch-active button {
+  background-color: #f3f4f6 !important;
+  color: #4b5563 !important;
+}
+
+.touch-device .touch-active.partner-logo,
+.touch-active.partner-logo {
+  filter: grayscale(0%) !important;
+  opacity: 1 !important;
+  transition: all 0.1s !important;
+}
+
+.touch-device .touch-active.partner-item,
+.touch-active.partner-item {
+  opacity: 1 !important;
+}
+
+.touch-device .touch-active.scroll-card,
+.touch-active.scroll-card {
+  transform: translateX(-8px) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12) !important;
+}
+
+.touch-device .touch-active.feature-link,
+.touch-active.feature-link {
+  gap: 10px !important;
+}
+
+
+.touch-device .touch-active.footer-link,
+.touch-active.footer-link {
+  color: #000000 !important;
+}
+
+.touch-device .touch-active.get-usd-pro-button,
+.touch-active.get-usd-pro-button {
+  border-color: #10B981 !important;
+  transform: translateX(-4px) !important;
+}
+
+.touch-device .touch-active.get-usd-pro-button .arrow,
+.touch-active.get-usd-pro-button .arrow {
+  transform: translateX(4px) !important;
+}
+
+.touch-device .touch-active.hamburger-close,
+.touch-device .touch-active.mobile-menu-close,
+.touch-active.hamburger-close,
+.touch-active.mobile-menu-close {
+  background-color: #f3f4f6 !important;
+}
+
+@media (max-width: 768px) {
+  body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  p, span, h1, h2, h3, h4, h5, h6, .selectable, input, textarea {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+
+  input, textarea, select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+  }
+
+  input, textarea, select {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+  }
+}
