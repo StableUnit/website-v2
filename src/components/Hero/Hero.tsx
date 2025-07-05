@@ -59,10 +59,10 @@ const Hero: React.FC = () => {
         <div className="hero-container">
           <div className="hero-content">
             <h1>
-              The first stablecoin backed by DeFi positions.
+              The Stablecoin <br /> that powers passive income.
             </h1>
             <p>
-              Borrow USD Pro against your LP positions from leading DEXs and yield protocols and keep earning fees.
+              Leverage your DeFi portfolio by borrowing USD Pro — non-rebasing yield bearing stable with robust $1 peg.
             </p>
             <form onSubmit={handleSubmit} className="hero-form">
               <input
