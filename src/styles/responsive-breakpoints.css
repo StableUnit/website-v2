@@ -39,7 +39,6 @@
 
 @media screen and (min-width: 1921px) {
   .container,
-  .hero-container,
   .tokenomics-container,
   .footer-content {
     max-width: 1920px !important;
