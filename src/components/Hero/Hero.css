@@ -34,6 +34,7 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding-top: 96px;
+  padding-bottom: 120px;
 }
 
 .hero-container {
@@ -205,7 +206,7 @@
 }
 
 .hero-partners {
-  margin: 0;
+  margin: 0 auto;
   padding-bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -214,18 +215,14 @@
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  max-width: 100%;
+  max-width: 1160px;
   height: 72px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  margin-top: 40px;
+  box-sizing: content-box;
+  padding: 0 12px;
 }
 
 .partners-label {
   width: calc(50% - 3vw);
-  padding-left: min(140px, max(20px, 9.72vw));
-  padding-right: clamp(30px, 4vw, 60px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -252,7 +249,6 @@
 
 .partners-scroll-container {
   width: calc(100% + 20vw);
-  padding-right: min(140px, max(20px, 9.72vw));
   overflow: hidden;
   position: relative;
   -webkit-box-sizing: border-box;
@@ -415,6 +411,15 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .hero {
+    min-height: 0;
+    padding-bottom: 40px;
+  }
+
+  .hero-wrapper {
+    padding-bottom: 40px;
+  }
+
   .hero-image {
     -webkit-box-ordinal-group: 2;
     -ms-flex-order: 1;
@@ -436,9 +441,6 @@
   
   .partners-label,
   .partners-scroll-container {
-    width: 100%;
-    padding-left: min(140px, max(20px, 9.72vw));
-    padding-right: min(140px, max(20px, 9.72vw));
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
@@ -482,7 +484,7 @@
   
   .partners-label {
     width: auto;
-    padding-left: min(140px, max(20px, 9.72vw));
+    padding-left: 0;
     padding-right: 10px;
     -webkit-box-pack: start;
     -ms-flex-pack: start;
@@ -515,15 +517,17 @@
 @media screen and (max-width: 480px) {
   .hero {
     padding-top: 40px;
-    min-height: 100vh;
   }
   
   .hero-wrapper {
-    gap: 30px;
+    gap: 0;
+    padding-bottom: 0;
   }
   
   .hero-container {
     gap: 25px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
   }
   
   .hero-content h1 {
@@ -563,7 +567,7 @@
   }
   
   .hero-partners {
-    padding-bottom: 15px;
+    padding-bottom: 0;
     gap: 10px;
   }
   
@@ -895,9 +899,5 @@
     left: 0;
     width: 3vw;
     background: linear-gradient(90deg, #ffffff 0%, transparent 100%);
-  }
-  
-  .hero-partners {
-    margin-top: 60px;
   }
 }

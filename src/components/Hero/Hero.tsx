@@ -10,6 +10,8 @@ import kucoinLogo from '@assets/images/hero/partners/Kucoin.png';
 import mexcLogo from '@assets/images/hero/partners/Mexc.png';
 import matterLabsLogo from '@assets/images/hero/partners/matter_labs.png';
 import nxgenLogo from '@assets/images/hero/partners/NxGen.png';
+import dexToolsLogo from '@assets/images/hero/partners/DEXTools.png';
+import stratLogo from '@assets/images/hero/partners/stratlogo.png';
 
 const Hero: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -42,15 +44,20 @@ const Hero: React.FC = () => {
   };
 
   const partners = [
-    { name: 'Gearbox', logo: gearboxLogo },
     { name: 'Fundamental Labs', logo: fundamentalLogo },
-    { name: '1inch', logo: linchLogo },
-    { name: 'bittensor', logo: bittensorLogo },
     { name: 'NGC', logo: ngcLogo },
-    { name: 'Kucoin', logo: kucoinLogo },
-    { name: 'MEXC', logo: mexcLogo },
-    { name: 'Matter Labs', logo: matterLabsLogo },
     { name: 'NxGen', logo: nxgenLogo },
+    { name: 'MEXC', logo: mexcLogo },
+    { name: 'Stratified', logo: stratLogo },
+  ];
+
+  const angels = [
+    { name: 'Gearbox', logo: gearboxLogo },
+    { name: 'Kucoin', logo: kucoinLogo },
+    { name: '1inch', logo: linchLogo },
+    { name: 'Matter Labs', logo: matterLabsLogo },
+    { name: 'bittensor', logo: bittensorLogo },
+    { name: 'DexTools', logo: dexToolsLogo },
   ];
 
   return (
@@ -59,27 +66,27 @@ const Hero: React.FC = () => {
         <div className="hero-container">
           <div className="hero-content">
             <h1>
-              The Stablecoin <br /> that powers passive income.
+              The Stablecoin <br/> that powers passive income.
             </h1>
             <p>
               Leverage your DeFi portfolio by borrowing USD Pro — non-rebasing yield bearing stable with robust $1 peg.
             </p>
             <form onSubmit={handleSubmit} className="hero-form">
               <input
-                type="email"
-                placeholder="Enter email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
+                  type="email"
+                  placeholder="Enter email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
               />
               <button type="submit">Join waitlist</button>
             </form>
           </div>
           <div className="hero-image">
-            <img src={heroImage} alt="StableVault platform" />
+            <img src={heroImage} alt="StableVault platform"/>
           </div>
         </div>
-        
+
         <div className="hero-partners">
           <div className="partners-label">
             <span>Backed by</span>
@@ -88,23 +95,53 @@ const Hero: React.FC = () => {
             <div className="partners-track">
               <div className="partners-scroll">
                 {partners.map((partner, index) => (
-                  <div key={`first-${index}`} className="partner-item">
-                    <img src={partner.logo} alt={partner.name} />
-                  </div>
+                    <div key={`first-${index}`} className="partner-item">
+                      <img src={partner.logo} alt={partner.name}/>
+                    </div>
                 ))}
               </div>
               <div className="partners-scroll" aria-hidden="true">
                 {partners.map((partner, index) => (
-                  <div key={`second-${index}`} className="partner-item">
-                    <img src={partner.logo} alt={partner.name} />
-                  </div>
+                    <div key={`second-${index}`} className="partner-item">
+                      <img src={partner.logo} alt={partner.name}/>
+                    </div>
                 ))}
               </div>
               <div className="partners-scroll" aria-hidden="true">
                 {partners.map((partner, index) => (
-                  <div key={`third-${index}`} className="partner-item">
-                    <img src={partner.logo} alt={partner.name} />
-                  </div>
+                    <div key={`third-${index}`} className="partner-item">
+                      <img src={partner.logo} alt={partner.name}/>
+                    </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="hero-partners">
+          <div className="partners-label">
+            <span>Angels leadership</span>
+          </div>
+          <div className="partners-scroll-container">
+            <div className="partners-track">
+              <div className="partners-scroll">
+                {angels.map((partner, index) => (
+                    <div key={`first-${index}`} className="partner-item">
+                      <img src={partner.logo} alt={partner.name}/>
+                    </div>
+                ))}
+              </div>
+              <div className="partners-scroll" aria-hidden="true">
+                {angels.map((partner, index) => (
+                    <div key={`second-${index}`} className="partner-item">
+                      <img src={partner.logo} alt={partner.name}/>
+                    </div>
+                ))}
+              </div>
+              <div className="partners-scroll" aria-hidden="true">
+                {angels.map((partner, index) => (
+                    <div key={`third-${index}`} className="partner-item">
+                      <img src={partner.logo} alt={partner.name}/>
+                    </div>
                 ))}
               </div>
             </div>
