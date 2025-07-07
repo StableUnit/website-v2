@@ -1,6 +1,7 @@
 @import 'styles/browser-compatibility.css';
 @import 'styles/responsive-breakpoints.css';
 @import 'styles/center-aligned-layout.css';
+@import 'styles/fonts.css';
 
 * {
   margin: 0;

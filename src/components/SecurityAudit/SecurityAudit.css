@@ -1,7 +1,6 @@
 .security-audit-section {
-  padding: clamp(60px, 10vh, 100px) 0;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  min-height: 100vh;
+  padding: 70px 0;
+  background: #F7F7F7;
   display: flex;
   align-items: center;
 }
@@ -9,14 +8,14 @@
 .security-container {
   margin: 0 auto;
   width: 100%;
-  padding-left: min(140px, max(20px, 9.72vw));
-  padding-right: min(140px, max(20px, 9.72vw));
-  box-sizing: border-box;
+  max-width: 1160px;
+  padding: 0 12px;
+  box-sizing: content-box;
 }
 
 .security-header {
   text-align: left;
-  margin-bottom: 80px;
+  margin-bottom: 70px;
 }
 
 .security-label {
@@ -27,7 +26,7 @@
   line-height: 30px;
   letter-spacing: 0;
   display: block;
-  margin-bottom: 16px;
+  margin-bottom: 4px;
 }
 
 .security-title {
@@ -38,6 +37,8 @@
   color: #232523;
   line-height: 110%;
   letter-spacing: -0.03em;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .security-content {
@@ -61,20 +62,17 @@
 }
 
 .security-content > *:first-child {
-  padding-right: 20px;
+  padding-right: 10px;
 }
 
 .security-content > *:last-child {
-  padding-left: 20px;
+  padding-left: 10px;
 }
 
 .security-card {
   background: #ffffff;
-  border-radius: 24px;
-  padding: 40px;
-  box-shadow: 
-    0 10px 25px -5px rgba(35, 37, 35, 0.1),
-    0 10px 10px -5px rgba(35, 37, 35, 0.04);
+  border-radius: 32px;
+  padding: 30px 30px 14px 30px;
   border: 1px solid #f1f5f9;
   transition: all 0.3s ease;
   position: relative;
@@ -105,7 +103,7 @@
 .security-right {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 10px;
   padding-left: 20px;
 }
 
@@ -117,9 +115,9 @@
 
 .safety-section {
   position: absolute;
-  top: 40px;
+  top: 30px;
   left: 30px;
-  max-width: 400px;
+  max-width: 385px;
   z-index: 2;
   text-align: left;
   display: flex;
@@ -132,7 +130,7 @@
   font-size: 24px;
   font-weight: 500;
   font-family: 'TT Interfaces', sans-serif;
-  margin: 0 0 24px 0;
+  margin: 0 0 30px 0;
   color: #232523;
   line-height: 110%;
   letter-spacing: 0;
@@ -144,7 +142,7 @@
 }
 
 .bounty-title {
-  margin: 0 0 40px 0;
+  margin: 0 0 85px 0;
 }
 
 .audit-title {
@@ -157,7 +155,7 @@
   font-family: 'TT Interfaces', sans-serif;
   line-height: 140%;
   color: #666666;
-  margin: 0 0 16px 0;
+  margin: 0 0 20px 0;
   font-weight: 400;
   letter-spacing: 0;
 }
@@ -168,7 +166,9 @@
 
 .audit-description {
   color: #232523;
-  margin: 0 0 32px 0;
+  margin: 0 0 12px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .highlight-green {
@@ -238,7 +238,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 0;
+  padding: 16px 0;
   border-bottom: 1px solid #e2e8f0;
 }
 
@@ -317,6 +317,7 @@
   margin-left: auto;
   width: 277px;
   height: 22px;
+  margin-bottom: 16px;
 }
 
 .audit-logo {
@@ -328,7 +329,6 @@
   align-items: center;
   justify-content: center;
   min-width: auto;
-  width: 89px;
   height: 22px;
   transition: all 0.3s ease;
   position: relative;
@@ -339,7 +339,6 @@
 .audit-logo.sherlock {
   padding: 0;
   min-width: auto;
-  width: 89px;
   height: 22px;
 }
 
@@ -350,12 +349,17 @@
   letter-spacing: 0.5px;
 }
 
-.audit-logo.decurity img,
-.audit-logo.sherlock img {
+.audit-logo.decurity img {
   width: 89px;
   height: 22px;
   object-fit: contain;
   filter: grayscale(100%);
+}
+
+.audit-logo.sherlock img {
+  width: 148px;
+  height: 22px;
+  object-fit: contain;
 }
 
 @media (max-width: 1200px) {
