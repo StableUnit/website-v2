@@ -33,17 +33,17 @@ const Tokenomics: React.FC = () => {
                 <div className={`tokenomics-feature ${expandedCards[0] ? 'expanded' : ''}`}>
                   <div className="feature-content">
                     <div className="feature-header">
-                      <h3><img src={approvedPersonIcon} alt="User" /> Liquidation Participation</h3>
-                      <button 
+                      <h3><img src={approvedPersonIcon} alt="User" /> Liquidation <br/> Participation</h3>
+                      <div
                         className="expand-btn mobile-only" 
                         onClick={() => toggleCard(0)}
                         aria-label="Toggle card details"
                       >
                         {expandedCards[0] ? '−' : '+'}
-                      </button>
+                      </div>
                     </div>
                     <p className={`feature-description ${expandedCards[0] ? 'visible' : ''}`}>
-                      Liquidators are deterministically selected from the top 21 SuDAO stakers (or delegates) who opt in to participate and earn a commission from performing liquidations.
+                      Liquidators are deterministically selected from the top 21 SuDAO stakers (or delegates). These participants opt in and earn commissions for handling liquidations.
                     </p>
                   </div>
                 </div>
@@ -52,16 +52,16 @@ const Tokenomics: React.FC = () => {
                   <div className="feature-content">
                     <div className="feature-header">
                       <h3><img src={speedIcon} alt="Speed" className="speed-icon" /> Gauge system to vote for pool incentive</h3>
-                      <button 
+                      <div
                         className="expand-btn mobile-only" 
                         onClick={() => toggleCard(1)}
                         aria-label="Toggle card details"
                       >
                         {expandedCards[1] ? '−' : '+'}
-                      </button>
+                      </div>
                     </div>
                     <p className={`feature-description ${expandedCards[1] ? 'visible' : ''}`}>
-                      Projects or users staking SuDAO can direct incentives toward specific collateral tokens to encourage their use as collateral on StableUnit.
+                      Projects and users staking SuDAO can direct incentives to specific collateral tokens, encouraging their use as collateral on StableUnit.
                     </p>
                   </div>
                 </div>
@@ -69,17 +69,17 @@ const Tokenomics: React.FC = () => {
                 <div className={`tokenomics-feature ${expandedCards[2] ? 'expanded' : ''}`}>
                   <div className="feature-content">
                     <div className="feature-header">
-                      <h3><img src={securityIcon} alt="Security" /> Governance Through Staking</h3>
-                      <button 
+                      <h3><img src={securityIcon} alt="Security" /> Governance <br /> Through Staking</h3>
+                      <div
                         className="expand-btn mobile-only" 
                         onClick={() => toggleCard(2)}
                         aria-label="Toggle card details"
                       >
                         {expandedCards[2] ? '−' : '+'}
-                      </button>
+                      </div>
                     </div>
                     <p className={`feature-description ${expandedCards[2] ? 'visible' : ''}`}>
-                      Stake using the vote escrow model to vote on interest rates, collateral onboarding, and buyback mechanisms. The longer users stake, the greater their governance power.
+                      Stake via a vote-escrow model to influence interest rates, collateral onboarding, and buyback mechanisms. The longer you stake, the greater your governance power.
                     </p>
                   </div>
                 </div>
