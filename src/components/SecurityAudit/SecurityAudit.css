@@ -415,19 +415,32 @@
 
 @media (max-width: 768px) {
   .security-audit-section {
-    padding: 60px 0;
+    padding: 40px 0;
+  }
+
+  .security-label {
+    margin-bottom: 0;
+  }
+
+  .security-header {
+    margin-bottom: 8px;
   }
 
   .security-title {
     font-size: clamp(24px, 7.48vw, 32px) !important;
     font-weight: 500;
+    border-bottom: none;
   }
   
   .safety-title,
   .bounty-title,
   .audit-title {
-    font-size: clamp(15px, 4.67vw, 20px) !important;
+    font-size: 20px;
     font-weight: 500;
+  }
+
+  .bounty-title {
+    margin-bottom: 40px;
   }
   
   .bounty-amount {
@@ -447,11 +460,12 @@
   }
 
   .security-content {
-    gap: 30px;
+    gap: 12px;
   }
 
+  .audit-section,
   .security-card {
-    padding: 32px 24px;
+    padding: 20px 20px 8px 20px;
   }
   
   .security-card.safety-card {
@@ -465,8 +479,9 @@
   .bounty-item {
     flex-direction: row;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
     justify-content: space-between;
+    padding: 12px 0;
   }
 
   .bounty-detail {
@@ -482,52 +497,20 @@
     justify-content: space-between;
   }
 
-  .audit-logo {
-    width: calc(50% - 6px);
-    min-width: auto;
-  }
-  
   .audit-section {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    text-align: left;
-    padding: 24px;
-    height: 100%;
   }
   
   .audit-title {
     text-align: left;
     align-self: flex-start;
   }
-  
-  .audit-description {
-    text-align: left;
-    margin: 0 0 24px 0;
-  }
-  
+
   .audit-logos {
-    margin-top: auto;
-    align-self: flex-end;
-    width: auto;
-    gap: 8px;
-  }
-  
-  .audit-logo {
-    width: auto;
-    min-width: auto;
-    height: auto;
-    padding: 8px 16px;
-    border-radius: 8px;
-  }
-  
-  .audit-logo.decurity,
-  .audit-logo.sherlock {
-    padding: 8px 16px;
-    min-width: auto;
-    width: auto;
-    height: auto;
+    width: 100%;
   }
   
   .audit-link {
@@ -543,7 +526,7 @@
   }
 
   .security-right {
-    gap: 20px;
+    gap: 12px;
   }
   
   .safety-text-content {
@@ -555,25 +538,6 @@
   }
 }
 
-@media (max-width: 480px) {
-  .bounty-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 20px 0;
-  }
-  
-  .bounty-detail {
-    justify-content: flex-start;
-    width: 100%;
-    font-size: 14px;
-  }
-  
-  .bounty-amount {
-    font-size: 20px !important;
-  }
-}
-
 @media (max-width: 380px) {
   .bounty-card {
     padding: 20px !important;
@@ -582,10 +546,6 @@
   .bounty-title {
     font-size: 18px;
     margin-bottom: 24px;
-  }
-  
-  .bounty-item {
-    padding: 16px 0;
   }
   
   .bounty-amount {
