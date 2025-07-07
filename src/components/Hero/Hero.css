@@ -1,8 +1,6 @@
 .hero {
   background: #ffffff;
   padding-top: clamp(64px, 8vh, 80px);
-  min-height: 100vh;
-  min-height: 100dvh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -828,7 +826,7 @@
     flex-direction: row;
     align-items: center;
     gap: 12px;
-    padding: 0 8px;
+    padding: 0 12px;
   }
   
   .partners-label {

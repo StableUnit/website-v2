@@ -84,14 +84,6 @@
 .protocol-logo {
   height: 36px;
   width: auto;
-  filter: grayscale(100%);
-  opacity: 0.6;
-  transition: all 0.3s ease;
-}
-
-.protocol-logo:hover {
-  filter: grayscale(0%);
-  opacity: 1;
 }
 
 .feature-link {

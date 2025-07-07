@@ -1,16 +1,22 @@
 .lending-section {
-  background: #f5f5f5;
+  background: #F7F7F7;
   width: 100%;
   overflow-x: hidden;
+  padding: 70px 0 120px 0;
 }
 
 .lending-header-section {
-  padding: clamp(60px, 12vh, 140px) 0 clamp(40px, 8vh, 80px);
-  background: #f5f5f5;
+  background: #F7F7F7;
+  max-width: 1160px;
+  box-sizing: content-box;
+  padding: 0 12px 28px 12px;
+  margin: 0 auto;
 }
 
 .lending-content-section {
-  
+  max-width: 1160px;
+  box-sizing: content-box;
+  margin: 0 auto;
   background: #F7F7F7;
   position: relative;
 }
@@ -18,14 +24,15 @@
 .lending-container {
   margin: 0 auto;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1160px;
   box-sizing: border-box;
+  padding: 0 12px;
 }
 
 .lending-content-section .lending-container {
   margin: 0 auto;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1160px;
   box-sizing: border-box;
   position: relative;
 }
@@ -55,19 +62,23 @@
 .lending-title {
   padding-right: clamp(20px, 5vw, 60px);
   width: 100%;
+  color: #4A4B4A;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%; /* 46.2px */
+  letter-spacing: -1.26px;
 }
 
 .lending-description {
   width: 575px;
-  height: 152px;
-  gap: 20px;
+  gap: 14px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
 }
 
 .lending-section h2 {
-  font-family: 'TT Interfaces', system-ui, -apple-system, sans-serif;
   font-size: 42px;
   font-weight: 500;
   color: #232523;
@@ -76,7 +87,17 @@
   letter-spacing: -3%;
 }
 
+.lending-feature-icon {
+  margin-left: -14px;
+  margin-top: 52px;
+}
+
 @media (max-width: 768px) {
+  .lending-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
   .lending-section h2 {
     font-family: 'TT Interfaces', system-ui, -apple-system, sans-serif;
     font-size: 32px;
@@ -84,7 +105,7 @@
     line-height: 109%;
     letter-spacing: -3%;
   }
-  
+
   .lending-description p {
     font-family: 'TT Interfaces', system-ui, -apple-system, sans-serif;
     font-size: 16px;
@@ -92,14 +113,15 @@
     line-height: 140%;
     letter-spacing: 0%;
     color: #474747;
+    padding-bottom: 20px;
   }
-  
+
   .lending-description p .highlight-dao {
     color: #01BB8C;
     font-weight: 500;
   }
   
-  .feature-card h3 {
+  .lending-feature-card h3 {
     font-family: 'TT Interfaces', system-ui, -apple-system, sans-serif;
     font-size: 16px;
     font-weight: 500;
@@ -120,11 +142,11 @@
     flex-shrink: 0;
   }
   
-  .feature-card {
+  .lending-feature-card {
     position: relative;
   }
   
-  .feature-header {
+  .lending-feature-header {
     position: relative;
   }
   
@@ -156,17 +178,16 @@
 
 .highlight {
   color: #00B786;
-  font-weight: 500;
 }
 
 .lending-description p {
-  font-family: 'TT Interfaces', system-ui, -apple-system, sans-serif;
   font-size: 18px;
   font-weight: 400;
   color: #4A4B4A;
-  line-height: 140%;
   letter-spacing: 0%;
   margin: 0;
+  font-style: normal;
+  line-height: 140%;
 }
 
 .learn-more-link {
@@ -176,8 +197,8 @@
   color: #232523;
   text-decoration: none;
   width: 127px;
-  height: 32px;
   transition: gap 0.3s ease;
+  padding: 0;
 }
 
 .learn-more-link:hover {
@@ -205,11 +226,6 @@
   flex-shrink: 0;
 }
 
-.learn-more-arrow svg {
-  width: 16px;
-  height: 16px;
-}
-
 .learn-more-link:hover .learn-more-arrow {
   transform: translate(2px, -2px);
 }
@@ -234,12 +250,11 @@
   margin: 0 auto;
 }
 
-.features-grid {
+.lending-features-grid {
   display: flex;
   justify-content: space-between;
   width: 100%;
   max-width: 100%;
-  height: 242px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
@@ -252,7 +267,7 @@
 }
 
 
-.feature-card {
+.lending-feature-card {
   background: transparent;
   padding: 0;
   transition: all 0.3s;
@@ -262,9 +277,10 @@
   height: 182px;
   gap: 20px;
   box-sizing: border-box;
+  height: -webkit-fill-available;
 }
 
-.feature-header {
+.lending-feature-header {
   display: flex;
   align-items: center;
   justify-content: start;
@@ -298,7 +314,7 @@
 }
 
 
-.feature-card h3 {
+.lending-feature-card h3 {
   font-size: 18px;
   font-weight: 600;
   color: #232523;
@@ -313,7 +329,7 @@
   display: none;
 }
 
-.feature-card p {
+.lending-feature-card p {
   font-family: 'TT Interfaces', system-ui, -apple-system, sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -367,6 +383,7 @@
   margin-top: auto;
   width: 160px;
   height: 32px;
+  padding: 0;
 }
 
 .explore-link-text {
@@ -398,50 +415,8 @@
   transform: translateX(2px);
 }
 
-@media (max-width: 1200px) {
-  .lending-header {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
-  .lending-header::before {
-    display: none;
-  }
-  
-  .lending-title {
-    padding-right: 0;
-  }
-  
-  .lending-description {
-    padding-left: 0;
-    width: 100%;
-    height: auto;
-  }
-  
-  .lending-content-section .lending-container {
-    width: 100%;
-    padding: 0 20px;
-  }
-  
-  .features-grid {
-    flex-wrap: wrap;
-    height: auto;
-    gap: 20px;
-  }
-  
-  .feature-card {
-    width: calc(50% - 10px);
-    height: auto;
-    min-height: 182px;
-  }
-  
-  .lending-image {
-    margin-bottom: -60px;
-  }
-}
-
 @media (max-width: 1024px) {
-  .features-grid {
+  .lending-features-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
   }
@@ -465,15 +440,6 @@
 }
 
 @media (max-width: 768px) {
-  .lending-header-section {
-    padding: 60px 0 30px;
-  }
-  
-  .lending-content-section {
-    padding: 30px 0 60px;
-  }
-  
-  
   .lending-header {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -501,15 +467,15 @@
   .lending-image {
     margin-bottom: 40px;
   }
-  
+
   .lending-image img {
-    width: 373.559326171875px;
-    height: 190px;
+    width: 520px;
+    height: 230px;
     max-width: 100%;
     object-fit: cover;
   }
   
-  .features-grid {
+  .lending-features-grid {
     flex-direction: column;
     gap: 15px;
     padding: 0;
@@ -521,7 +487,7 @@
     -webkit-backdrop-filter: none;
   }
   
-  .feature-card {
+  .lending-feature-card {
     width: 100%;
     background: #FFFFFF;
     border-radius: 16px;
@@ -533,17 +499,17 @@
     transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
-  .feature-card.expanded {
+  .lending-feature-card.expanded {
     height: auto;
     gap: 20px;
   }
   
-  .feature-header {
+  .lending-feature-header {
     align-items: center;
     height: 40px;
   }
   
-  .feature-card {
+  .lending-feature-card {
     display: flex;
     flex-direction: column;
   }
@@ -574,20 +540,20 @@
     transform-origin: center;
   }
 
-  .feature-card.expanded .mobile-toggle-btn svg path {
+  .lending-feature-card.expanded .mobile-toggle-btn svg path {
     transform: rotate(45deg);
   }
 
-  .feature-header {
+  .lending-feature-header {
     align-items: center;
     flex-direction: row;
   }
 
-  .features-grid {
+  .lending-features-grid {
     gap: 16px;
   }
 
-  .feature-card {
+  .lending-feature-card {
     min-height: auto;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -595,30 +561,30 @@
     padding: 16px;
   }
   
-  .feature-card.expanded {
+  .lending-feature-card.expanded {
     padding-bottom: 20px;
   }
 
-  .feature-card p {
+  .lending-feature-card p {
     display: none;
   }
   
-  .feature-card.expanded p {
+  .lending-feature-card.expanded p {
     display: block;
     opacity: 1;
     margin: 0 10% 16px 10%;
     transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
-  .feature-card .explore-link {
+  .lending-feature-card .explore-link {
     display: none;
   }
   
-  .feature-card .feature-logos {
+  .lending-feature-card .feature-logos {
     display: none;
   }
   
-  .feature-card.expanded .feature-logos {
+  .lending-feature-card.expanded .feature-logos {
     display: flex;
     gap: 6px;
     margin: 12px 10% 16px 10%;
@@ -628,10 +594,10 @@
   }
 
 
-  .feature-card.expanded .explore-link {
+  .lending-feature-card.expanded .explore-link {
     display: inline-flex;
     opacity: 1;
-    margin: 0 10% 10px 10%;
+    margin: 0 10px 10px 10px;
     animation: fadeIn 0.3s ease-out 0.3s both;
   }
   
@@ -653,11 +619,11 @@
     gap: 20px;
   }
   
-  .features-grid {
+  .lending-features-grid {
     gap: 20px;
   }
   
-  .feature-header {
+  .lending-feature-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
@@ -673,8 +639,8 @@
     transform: scale(4);
   }
   
-  .feature-card h3 {
-    margin-bottom: 8px;
+  .lending-feature-card h3 {
+    text-wrap: auto;
   }
 
   .mobile-toggle-btn {
@@ -697,30 +663,29 @@
     transform-origin: center;
   }
 
-  .feature-card.expanded .mobile-toggle-btn svg path {
+  .lending-feature-card.expanded .mobile-toggle-btn svg path {
     transform: rotate(45deg);
   }
 
-  .feature-header {
+  .lending-feature-header {
     flex-direction: row;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     width: 100%;
     padding: 0;
     margin: 0;
   }
   
-  .feature-header h3 {
+  .lending-feature-header h3 {
     flex: 1;
     min-width: 0;
-    padding-right: 8px;
   }
 
-  .features-grid {
+  .lending-features-grid {
     gap: 12px;
   }
 
-  .feature-card {
+  .lending-feature-card {
     min-height: auto;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -728,43 +693,43 @@
     padding: 16px;
   }
   
-  .feature-card.expanded {
+  .lending-feature-card.expanded {
     padding-bottom: 20px;
   }
 
-  .feature-card p {
+  .lending-feature-card p {
     display: none;
   }
   
-  .feature-card.expanded p {
+  .lending-feature-card.expanded p {
     display: block;
     opacity: 1;
-    margin: 0 10% 16px 10%;
+    margin: 0;
     transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
-  .feature-card .explore-link {
+  .lending-feature-card .explore-link {
     display: none;
   }
   
-  .feature-card .feature-logos {
+  .lending-feature-card .feature-logos {
     display: none;
   }
   
-  .feature-card.expanded .feature-logos {
+  .lending-feature-card.expanded .feature-logos {
     display: flex;
     gap: 6px;
-    margin: 12px 10% 16px 10%;
+    margin: 0;
     width: auto;
     height: 32px;
     animation: fadeIn 0.3s ease-out 0.2s both;
   }
 
 
-  .feature-card.expanded .explore-link {
+  .lending-feature-card.expanded .explore-link {
     display: inline-flex;
     opacity: 1;
-    margin: 0 10% 10px 10%;
+    margin: 0;
     animation: fadeIn 0.3s ease-out 0.3s both;
   }
   
@@ -782,11 +747,11 @@
 
 @media (max-width: 320px) {
   
-  .features-grid {
+  .lending-features-grid {
     gap: 16px;
   }
   
-  .feature-card {
+  .lending-feature-card {
     min-height: 180px;
   }
 }
