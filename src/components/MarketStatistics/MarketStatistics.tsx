@@ -6,13 +6,12 @@ const MarketStatistics: React.FC = () => {
   return (
     <section className="market-statistics">
       <div className="market-statistics-container">
-        <div className="market-card">
           <div className="market-header">
             <h2>Join <span className="highlight">$35b</span> market.</h2>
             <div className="market-content">
               <p>
                 <span className="highlight-text">Yield bearing stablecoins' market will x5.</span> Ethereum LSTs now represent
-                over 14% of its supply, with nearly 30% of all ETH being staked.
+                over 14% of its supply, with nearly 30% of all ETH being staked.<br />
                 In contrast, only 3.4% of stablecoins are in a yield bearing format.
               </p>
               <a href="#dao" className="get-involved-link desktop-button">
@@ -48,7 +47,6 @@ const MarketStatistics: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
       </div>
     </section>
   );
