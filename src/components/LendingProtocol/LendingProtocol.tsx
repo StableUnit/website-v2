@@ -6,42 +6,34 @@ import incentivesImage from '@assets/images/lending-protocol/incentives-redirect
 import maximizeYieldImage from '@assets/images/lending-protocol/maximize-yield-spin.png';
 
 const LendingProtocol: React.FC = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 968);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
   const features = [
     {
-      title: 'Borrow against your complex underutilized assets.',
-      description: 'Through DeFI adapters, StableUnit supports positions from leading DEXs and yield protocols as collateral to borrow USD Pro.',
+      title: 'Borrow against your complex, underutilized assets.',
+      description: 'Through DeFI adapters, StableUnit supports positions from leading DEXs and yield protocols  as collateral as well as blue-chip crypto assets',
       image: complexAssetsImage,
-      imageAlt: 'Complex underutilized assets'
+      imageAlt: 'Complex underutilized assets',
+      imagePosition: 50,
     },
     {
-      title: 'Higher liquidation thresholds on your borrows.',
-      description: 'Unlike models requiring large liquidator discounts, StableUnit uses an async, MEV-resistant system assigning CDPs to the top 21 stakers and delegates, who opt-in, deterministically. Lowering the cost of liquidations.',
+      title: 'Liquidation Insurance: Borrow Without the Fear',
+      description: 'Ever been liquidated? It hurts. Add optional insurance when borrowing against base assets such BTC or ETH (LPs research wip). If prices dip below the liquidation threshold but bounce back within two months, the policy covers the shortfall and your position is treated as though liquidation never happened',
       image: liquidationImage,
-      imageAlt: 'Higher liquidation thresholds'
+      imageAlt: 'Higher liquidation thresholds',
+      imagePosition: 90,
     },
     {
       title: 'Redirect incentives to your collateral.',
-      description: 'Use your voting power to steer protocol rewards toward the assets you\'ve used as collateral. You can supercharge your yield and play an active role in influencing how rewards are distributed.',
+      description: 'Use your voting power to steer protocol rewards toward the assets you choose. This lets you boost your yield and actively shape how rewards are distributed across the platform',
       image: incentivesImage,
-      imageAlt: 'Redirect incentives'
+      imageAlt: 'Redirect incentives',
+      imagePosition: 50,
     },
     {
-      title: 'Maximize your yield by locking SuDAO.',
-      description: 'Boost your earnings by locking your SuDAO! SuDAO uses a vote-escrow model, meaning the longer you commit your tokens, the greater the incentive boost you\'ll receive.',
+      title: 'Make the collateral earn with StableUnit',
+      description: 'StableUnit can turn plain crypto into yield-bearing assets. Deposit once and the protocol auto-routes funds into top DeFi strategies to maximize safe returns',
       image: maximizeYieldImage,
-      imageAlt: 'Maximize yield with SuDAO'
+      imageAlt: 'Maximize yield with SuDAO',
+      imagePosition: 90,
     }
   ];
 
@@ -51,7 +43,7 @@ const LendingProtocol: React.FC = () => {
         <div className="lending-protocol-header">
           <div>
             <div className="section-label">Stableunit</div>
-            <h2>The ultimate lending protocol.</h2>
+            <h2>The ultimate lending protocol</h2>
           </div>
           <a href="/app" className="borrow-link borrow-link-desktop">
             Borrow now
@@ -61,19 +53,16 @@ const LendingProtocol: React.FC = () => {
           </a>
         </div>
 
-        <div className="features-container">
+        <div className="protocol-features">
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className={`feature-item feature-item-${index + 1}`}
-              style={isMobile ? { backgroundImage: `url(${feature.image})` } : undefined}
+              className='protocol-feature-item'
+              style={{ backgroundImage: `url(${feature.image})`, backgroundPositionX: `${feature.imagePosition}%`}}
             >
-              <div className="feature-content">
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
-              </div>
-              <div className="feature-image">
-                <img src={feature.image} alt={feature.imageAlt} />
+              <div className="protocol-feature-content">
+                <h3 className="protocol-feature-title">{feature.title}</h3>
+                <p className="protocol-feature-description"> {feature.description}</p>
               </div>
             </div>
           ))}

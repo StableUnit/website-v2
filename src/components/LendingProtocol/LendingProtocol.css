@@ -1,16 +1,14 @@
 .lending-protocol {
-  background: #f5f7fa;
-  padding: clamp(60px, 10vh, 100px) 0;
+  padding: 120px 12px;
   width: 100%;
   overflow-x: hidden;
 }
 
 .lending-protocol-container {
   margin: 0 auto;
-  padding-left: min(140px, max(20px, 9.72vw));
-  padding-right: min(140px, max(20px, 9.72vw));
   box-sizing: border-box;
   width: 100%;
+  max-width: 1160px;
 }
 
 .lending-protocol-header {
@@ -23,8 +21,9 @@
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  padding: 0 0 16px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   margin-bottom: 60px;
-  padding: 0;
 }
 
 .lending-protocol-header > div {
@@ -49,27 +48,43 @@
   color: #232523;
   margin: 0;
   line-height: 110%;
-  letter-spacing: -3%;
+  letter-spacing: -1.26px;
 }
 
-@media (max-width: 768px) {
-  .lending-protocol-header h2 {
-    font-size: clamp(20px, 5.5vw, 28px) !important;
-    font-weight: 500;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .feature-content h3 {
-    font-size: clamp(15px, 4.67vw, 20px) !important;
-    font-weight: 500;
-  }
-  
-  .feature-content p {
-    font-size: clamp(12px, 3.74vw, 16px) !important;
-    font-weight: 400;
-  }
+.protocol-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.protocol-feature-item {
+  padding: 30px;
+  border-radius: 32px;
+  overflow: hidden;
+  width: 575px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+}
+
+.protocol-feature-title {
+  color: #232523;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  max-width: 346px;
+  padding-bottom: 30px;
+}
+
+.protocol-feature-description {
+  color: #666;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  max-width: 420px;
 }
 
 .borrow-link {
@@ -111,183 +126,21 @@
 
 .borrow-link-mobile {
   display: none;
+  font-weight: 500;
 }
 
 .mobile-borrow-container {
   display: none;
 }
 
-.features-container {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  gap: 0;
-  position: relative;
-}
-
-.features-container::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  pointer-events: none;
-}
-
-.feature-item {
-  background: #ffffff;
-  border-radius: 32px;
-  padding: 0;
-  position: relative;
-  overflow: hidden;
-  box-shadow: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-height: 480px;
-  display: flex;
-  flex-direction: column;
-  margin: 7.5px;
-  box-sizing: border-box;
-  max-width: 100%;
-}
-
-.feature-item:hover {
-  transform: translateY(-4px);
-}
-
-.feature-item-1 {
-  border: 1px solid #00CC9614;
-}
-
-.feature-item-2 {
-  border: 1px solid #302D2D08;
-}
-
-.feature-item-3 {
-  border: 1px solid #302D2D08;
-}
-
-.feature-item-4 {
-  border: 1px solid #00CC9614;
-}
-
-.feature-content {
-  padding: 18px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  background: transparent;
-  box-sizing: border-box;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-}
-
-.feature-content h3 {
-  font-size: 24px;
-  font-weight: 500;
-  color: #232523;
-  margin-bottom: 16px;
-  line-height: 110%;
-  letter-spacing: 0;
-  background: transparent;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
-}
-
-.feature-content p {
-  font-size: 18px;
-  color: #666666;
-  line-height: 140%;
-  letter-spacing: 0;
-  font-weight: 400;
-  word-break: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
-  background: transparent;
-  max-width: 100%;
-}
-
-.feature-item-1 .feature-content h3 {
-  font-size: clamp(20px, 1.67vw, 24px);
-  margin-bottom: 20px;
-}
-
-.feature-item-1 .feature-content p {
-  max-width: 85%;
-}
-
-@media (max-width: 968px) {
-  .feature-item-1 .feature-content p {
-    max-width: 100%;
-  }
-}
-
-.feature-image {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  min-height: 480px;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  background: transparent;
-  overflow: hidden;
-}
-
-.feature-item-1 .feature-image {
-  background: transparent;
-}
-
-.feature-item-2 .feature-image {
-  background: transparent;
-}
-
-.feature-item-3 .feature-image {
-  background: transparent;
-}
-
-.feature-item-4 .feature-image {
-  background: transparent;
-}
-
-.feature-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center bottom;
-  mix-blend-mode: normal;
-}
-
-
 @media (max-width: 1024px) {
   .lending-protocol-header {
     gap: 20px;
   }
-  
+
   .borrow-link {
     padding: 12px 24px;
   }
-  
-  .features-container {
-    gap: 12px;
-  }
-  
-  .feature-item {
-    min-height: 400px;
-  }
-  
-  .feature-image {
-    min-height: 400px;
-  }
-}
-
-@media (max-width: 1080px) and (min-width: 720px) {
 }
 
 @media (max-width: 968px) {
@@ -295,98 +148,22 @@
     padding-left: 20px;
     padding-right: 8px;
   }
-  
+
   .lending-protocol-header h2 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: calc(100vw - 28px);
   }
-  
-  .features-container {
-    grid-template-columns: 1fr;
-    gap: clamp(12px, 1.5vh, 15px);
-    width: 100%;
-    max-width: 100%;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .features-container::before {
-    display: none;
-  }
-  
-  .feature-item {
-    margin: 0;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .feature-item:nth-child(odd) {
-    border-right: none;
-  }
-  
-  .feature-item:not(:last-child) {
-    border-bottom: 1px solid rgba(35, 37, 35, 0.1);
-  }
-
-  .feature-item {
-    padding: 0;
-    min-height: clamp(300px, 50vh, 450px);
-    overflow: hidden;
-    width: 100%;
-    box-sizing: border-box;
-    margin: 0;
-  }
-
-  .feature-content {
-    padding: clamp(20px, 3vw, 28px);
-    padding-right: clamp(16px, 2.5vw, 24px);
-    background: transparent;
-    width: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-
-  .feature-item {
-    background-size: auto 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-
-  .feature-item-1 {
-    background-image: url('/src/assets/images/lending-protocol/complex-assets-pyramid.png');
-  }
-
-  .feature-item-2 {
-    background-image: url('/src/assets/images/lending-protocol/liquidation-thresholds-stairs.png');
-    background-position: center center;
-  }
-
-  .feature-item-3 {
-    background-image: url('/src/assets/images/lending-protocol/incentives-redirect-balls.png');
-  }
-
-  .feature-item-4 {
-    background-image: url('/src/assets/images/lending-protocol/maximize-yield-spin.png');
-  }
-
-  .feature-image {
-    display: none;
-  }
-
-  .feature-item-1 .feature-content h3 {
-    font-size: clamp(18px, 2.5vw, 24px);
-  }
 }
 
 @media (max-width: 768px) {
   .lending-protocol {
-    padding: 60px 0;
+    padding: 100px 0;
     width: 100%;
     overflow-x: hidden;
   }
-  
+
   .lending-protocol-container {
     padding-left: 12px;
     padding-right: 8px;
@@ -400,14 +177,20 @@
     margin-bottom: 40px;
     width: 100%;
     margin-right: 0;
+    border-bottom: none;
+    padding-bottom: 0;
   }
 
   .lending-protocol-header h2 {
-    font-size: clamp(22px, 6vw, 32px);
+    font-size: 32px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
+  }
+
+  .section-label {
+    font-size: 18px;
   }
 
   .borrow-link-desktop {
@@ -427,102 +210,37 @@
     justify-content: center;
     padding: 16px 40px;
   }
-
-  .features-container {
-    width: 100%;
-    margin: 0;
-    gap: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  .feature-item {
-    margin: 0;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .feature-item {
-    min-height: clamp(320px, 45vh, 400px);
-  }
-
-  .feature-content {
-    padding: 20px;
-    padding-right: 16px;
-    background: transparent;
-    width: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-
-  .feature-content h3,
-  .feature-content-overlay h3 {
-    font-size: clamp(18px, 3vw, 24px);
-    background: transparent;
-  }
-
-  .feature-content p,
-  .feature-content-overlay p {
-    font-size: clamp(14px, 2vw, 18px);
-    background: transparent;
-  }
-
-  .feature-item {
-    background-size: auto 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-
-  .feature-item-1 {
-    background-image: url('/src/assets/images/lending-protocol/complex-assets-pyramid.png');
-  }
-
-  .feature-item-2 {
-    background-image: url('/src/assets/images/lending-protocol/liquidation-thresholds-stairs.png');
-    background-position: center center;
-  }
-
-  .feature-item-3 {
-    background-image: url('/src/assets/images/lending-protocol/incentives-redirect-balls.png');
-  }
-
-  .feature-item-4 {
-    background-image: url('/src/assets/images/lending-protocol/maximize-yield-spin.png');
-  }
-
-  .feature-image {
-    display: none;
-  }
-
-  .feature-item-1 .feature-content h3 {
-    font-size: clamp(18px, 3vw, 24px);
-    background: transparent;
-  }
-
-  .feature-item-1 .feature-content p {
-    max-width: 100%;
-    background: transparent;
-  }
 }
 
 @media (max-width: 480px) {
+  .protocol-feature-item {
+    padding: 20px;
+  }
+
+  .protocol-feature-title {
+    color: #000;
+    font-size: 20px;
+    line-height: 130%;
+    padding-bottom: 12px;
+  }
+
+  .protocol-feature-description {
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.048px;
+  }
+
   .lending-protocol-container {
-    padding-left: 12px;
-    padding-right: 8px;
+    padding: 0 12px;
   }
-  
-  .lending-protocol-header h2 {
-    font-size: clamp(18px, 5vw, 24px);
-  }
-  
+
   .lending-protocol-header {
     gap: 16px;
     margin-bottom: 24px;
     width: 100%;
     margin-right: 0;
   }
-  
+
   .borrow-link-desktop {
     display: none;
   }
@@ -531,7 +249,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 12px;
   }
 
   .borrow-link-mobile {
@@ -541,74 +259,22 @@
     padding: 14px 32px;
     font-size: 16px;
   }
-  
-  .features-container {
-    gap: 10px;
-    width: 100%;
-    margin: 0;
-  }
-  
-  .feature-item {
-    min-height: clamp(280px, 40vh, 350px);
-    border-radius: 16px;
-  }
-  
-  .feature-content {
-    padding: 16px;
-    padding-right: 12px;
-    background: transparent;
-    width: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-  
-  .feature-item {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .feature-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    min-height: unset;
-    background: none;
-  }
-
-  .feature-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .feature-content {
-    position: relative;
-    z-index: 1;
-    background: transparent;
-    padding: 16px;
-    margin: 0;
-    width: 100%;
-    box-sizing: border-box;
-  }
 }
 
 @media (max-width: 320px) {
   .lending-protocol-container {
-    padding-left: 10px;
-    padding-right: 8px;
+    padding: 0 10px;
   }
-  
+
   .lending-protocol-header h2 {
     font-size: 16px;
   }
-  
+
   .lending-protocol-header {
     width: 100%;
     margin-right: 0;
   }
-  
+
   .borrow-link-desktop {
     display: none;
   }
@@ -626,24 +292,5 @@
     justify-content: center;
     padding: 12px 28px;
     font-size: 14px;
-  }
-  
-  .features-container {
-    width: 100%;
-    margin: 0;
-  }
-  
-  .feature-item {
-    min-height: clamp(220px, 35vh, 300px);
-  }
-  
-  .feature-image {
-    min-height: 220px;
-  }
-  
-  .feature-content {
-    padding: 12px;
-    padding-right: 10px;
-    overflow: hidden;
   }
 }
