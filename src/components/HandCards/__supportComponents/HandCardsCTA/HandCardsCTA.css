@@ -1,0 +1,58 @@
+.bottom-cta {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 12px;
+    margin-bottom: 0;
+    width: 100%;
+    align-self: flex-start;
+    position: relative;
+}
+
+.get-usd-pro-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 21px;
+    width: 155px;
+    height: 42px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    color: rgba(1, 187, 140);
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 200px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    white-space: nowrap;
+    font-family: 'TT Interfaces', sans-serif;
+    text-align: center;
+    justify-content: center;
+}
+
+.get-usd-pro-btn:hover {
+    border-color: #00B786;
+    transform: translateX(-4px);
+}
+
+.btn-arrow {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s ease;
+    color: #00B786;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.get-usd-pro-btn:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+@media (max-width: 968px) {
+    .get-usd-pro-btn {
+        width: 100%;
+    }
+}

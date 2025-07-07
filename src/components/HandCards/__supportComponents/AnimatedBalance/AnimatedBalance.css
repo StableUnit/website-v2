@@ -1,0 +1,37 @@
+.balance-overlay {
+    position: absolute;
+    bottom: 22%;
+    left: 60%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    z-index: 2;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.balance-amount,
+.balance-currency {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 160%;
+    color: #000;
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+
+@media (max-width: 968px) {
+    .balance-overlay {
+        left: 205px !important;
+        bottom: 70px !important;
+    }
+
+    .balance-amount,
+    .balance-currency {
+        font-size: 16px !important;
+    }
+}
