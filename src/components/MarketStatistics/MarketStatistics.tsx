@@ -1,18 +1,20 @@
 import React from 'react';
 import './MarketStatistics.css';
-import chartImage from '@assets/images/market-statistics/market-growth-chart.png';
+import chartImage from '@assets/images/market-statistics/market-growth-chart.jpg';
 
 const MarketStatistics: React.FC = () => {
   return (
     <section className="market-statistics">
       <div className="market-statistics-container">
           <div className="market-header">
-            <h2>Join <span className="highlight">$35b</span> market.</h2>
+            <h2>Join growing market</h2>
             <div className="market-content">
               <p>
-                <span className="highlight-text">Yield bearing stablecoins' market will x5.</span> Ethereum LSTs now represent
-                over 14% of its supply, with nearly 30% of all ETH being staked.<br />
-                In contrast, only 3.4% of stablecoins are in a yield bearing format.
+                Over <span className="highlight">30% of ETH</span> is staked, with{' '}
+                <span className="highlight">roughly half</span> of it via yield-bearing tokens (LSTs).
+                In contrast, under <b>5%</b> of stablecoins earn yield. With projections from <span className="highlight">Goldman
+                Sachs</span> and <span className="highlight">Citi</span> expecting
+                stablecoins to surpass <b>$1T</b> in five years, the market for yield-bearing assets is set to grow rapidly.
               </p>
               <a href="#dao" className="get-involved-link desktop-button">
                 Get involved 
