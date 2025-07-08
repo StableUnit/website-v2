@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     try {
       // Production-ready email submission
       const response = await fetch('/api/waitlist', {
@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
         },
         body: JSON.stringify({ email }),
       });
-      
+
       if (response.ok) {
         // Clear the form on successful submission
         setEmail('');
@@ -66,24 +66,24 @@ const Hero: React.FC = () => {
         <div className="hero-container">
           <div className="hero-content">
             <h1>
-              The Stablecoin <br/> that powers passive income.
+              The Stablecoin <br /> that powers passive income.
             </h1>
             <p>
               Leverage your DeFi portfolio by borrowing USD Pro — non-rebasing yield bearing stable with robust $1 peg.
             </p>
             <form onSubmit={handleSubmit} className="hero-form">
               <input
-                  type="email"
-                  placeholder="Enter email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
+                type="email"
+                placeholder="Enter email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
               <button type="submit">Join waitlist</button>
             </form>
           </div>
           <div className="hero-image">
-            <img src={heroImage} alt="StableVault platform"/>
+            <img src={heroImage} alt="StableVault platform" />
           </div>
         </div>
 
@@ -95,23 +95,23 @@ const Hero: React.FC = () => {
             <div className="partners-track">
               <div className="partners-scroll">
                 {partners.map((partner, index) => (
-                    <div key={`first-${index}`} className="partner-item">
-                      <img src={partner.logo} alt={partner.name}/>
-                    </div>
+                  <div key={`first-${index}`} className="partner-item">
+                    <img src={partner.logo} alt={partner.name} />
+                  </div>
                 ))}
               </div>
               <div className="partners-scroll" aria-hidden="true">
                 {partners.map((partner, index) => (
-                    <div key={`second-${index}`} className="partner-item">
-                      <img src={partner.logo} alt={partner.name}/>
-                    </div>
+                  <div key={`second-${index}`} className="partner-item">
+                    <img src={partner.logo} alt={partner.name} />
+                  </div>
                 ))}
               </div>
               <div className="partners-scroll" aria-hidden="true">
                 {partners.map((partner, index) => (
-                    <div key={`third-${index}`} className="partner-item">
-                      <img src={partner.logo} alt={partner.name}/>
-                    </div>
+                  <div key={`third-${index}`} className="partner-item">
+                    <img src={partner.logo} alt={partner.name} />
+                  </div>
                 ))}
               </div>
             </div>
@@ -122,26 +122,26 @@ const Hero: React.FC = () => {
             <span>Angels leadership</span>
           </div>
           <div className="partners-scroll-container">
-            <div className="partners-track">
+            <div className="partners-track-reverse">
               <div className="partners-scroll">
                 {angels.map((partner, index) => (
-                    <div key={`first-${index}`} className="partner-item">
-                      <img src={partner.logo} alt={partner.name}/>
-                    </div>
+                  <div key={`first-${index}`} className="partner-item">
+                    <img src={partner.logo} alt={partner.name} />
+                  </div>
                 ))}
               </div>
               <div className="partners-scroll" aria-hidden="true">
                 {angels.map((partner, index) => (
-                    <div key={`second-${index}`} className="partner-item">
-                      <img src={partner.logo} alt={partner.name}/>
-                    </div>
+                  <div key={`second-${index}`} className="partner-item">
+                    <img src={partner.logo} alt={partner.name} />
+                  </div>
                 ))}
               </div>
               <div className="partners-scroll" aria-hidden="true">
                 {angels.map((partner, index) => (
-                    <div key={`third-${index}`} className="partner-item">
-                      <img src={partner.logo} alt={partner.name}/>
-                    </div>
+                  <div key={`third-${index}`} className="partner-item">
+                    <img src={partner.logo} alt={partner.name} />
+                  </div>
                 ))}
               </div>
             </div>
