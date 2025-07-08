@@ -6,7 +6,7 @@ import securityLogo from '@assets/images/lending/features/security-icon.svg';
 import desktopCheck from '@assets/images/lending/features/desktop-check-icon.svg';
 import uniswapLogo from '@assets/images/lending/features/Uniswap.png';
 import pendleLogo from '@assets/images/lending/features/pendle.png';
-import auraLogo from '@assets/images/lending/features/aura.png';
+import auraLogo from '@assets/images/lending/features/Aura.png';
 
 const LendingSection: React.FC = () => {
   const [expandedCards, setExpandedCards] = useState<number[]>([]);
