@@ -4,7 +4,7 @@ import lendingImage from '@assets/images/lending/lending.png';
 import chainLogo from '@assets/images/lending/features/chain-icon.svg';
 import securityLogo from '@assets/images/lending/features/security-icon.svg';
 import desktopCheck from '@assets/images/lending/features/desktop-check-icon.svg';
-import uniswapLogo from '@assets/images/lending/features/uniswap.png';
+import uniswapLogo from '@assets/images/lending/features/Uniswap.png';
 import pendleLogo from '@assets/images/lending/features/pendle.png';
 import auraLogo from '@assets/images/lending/features/aura.png';
 
