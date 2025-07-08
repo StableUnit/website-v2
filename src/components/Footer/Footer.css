@@ -7,30 +7,29 @@
   --footer-base-font: 16px;
   --footer-small-font: 14px;
   --footer-smaller-font: 13px;
-  --footer-heading-font: 18px;
+  --footer-heading-font: 16px;
   --footer-gap-xl: 80px;
-  --footer-gap-lg: 40px;
+  --footer-gap-lg: 30px;
   --footer-gap-md: 30px;
-  --footer-gap-sm: 20px;
-  --footer-gap-xs: 12px;
+  --footer-gap-sm: 14px;
+  --footer-gap-xs: 8px;
 }
 
 .footer {
   background-color: var(--footer-bg);
-  padding: 60px 0 40px 0;
-  border-top: 1px solid var(--footer-border-color);
+  padding: 60px 12px 0 12px;
+  box-sizing: border-box;
 }
 
 .footer-content {
   margin: 0 auto;
-  padding-left: min(140px, max(20px, 9.72vw));
-  padding-right: min(140px, max(20px, 9.72vw));
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--footer-gap-xl);
   align-items: start;
   box-sizing: border-box;
   width: 100%;
+  max-width: 1160px;
 }
 
 @supports not (display: grid) {
@@ -65,10 +64,13 @@
   width: auto;
 }
 
-.footer-description,
-.footer-column ul li a {
-  color: var(--footer-text-color);
+.footer-description {
+  color: #A4A4A4;
   font-size: var(--footer-base-font);
+}
+
+.footer-column ul li a {
+  color: var(--footer-text-light);
 }
 
 .footer-description {
@@ -85,7 +87,7 @@
 
 .footer-column h3 {
   font-size: var(--footer-heading-font);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--footer-text-dark);
   margin: 0 0 20px 0;
 }
@@ -111,18 +113,23 @@
 }
 
 .footer-disclaimer {
-  margin-top: var(--footer-gap-lg);
-  padding-top: var(--footer-gap-md);
-  border-top: 1px solid var(--footer-border-color);
-  display: none;
+  margin: 30px auto 10px auto;
+  padding-top: 13px;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  display: flex;
+  justify-content: space-between;
+  max-width: 1160px;
 }
 
 .footer-disclaimer p {
-  color: var(--footer-text-light);
-  font-size: var(--footer-small-font);
-  line-height: 1.5;
+  color: #999;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 15.6px */
+  letter-spacing: -0.36px;
   margin: 0 0 10px 0;
-  max-width: 600px;
+  max-width: 575px;
 }
 
 .footer-disclaimer .footer-reference {
@@ -177,5 +184,31 @@
   .footer-disclaimer p {
     font-size: clamp(9px, 2.8vw, 12px) !important;
     font-weight: 400;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-column h3 {
+    margin-bottom: 16px;
+  }
+
+  .footer-column a {
+    padding: 6px 0;
+  }
+
+  .footer-disclaimer {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .footer-reference {
+    padding-bottom: 8px;
+  }
+
+  ul {
+    padding: 0;
+    list-style-type: none;
   }
 }
