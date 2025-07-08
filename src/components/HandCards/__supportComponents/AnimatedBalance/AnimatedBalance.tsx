@@ -6,19 +6,34 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface AnimatedBalanceProps {
     startValue: number;
-    endValue: number;
-    duration?: number; // seconds
 }
 
-const AnimatedBalance: React.FC<AnimatedBalanceProps> = ({ startValue, endValue, duration = 5 }) => {
+const AnimatedBalance: React.FC<AnimatedBalanceProps> = ({ startValue }) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const amountRef = useRef<HTMLSpanElement>(null);
     const triggerRef = useRef<ScrollTrigger | null>(null);
+    const rafId = useRef<number | null>(null);
+    const currentValue = useRef<number>(startValue);
+    const lastTimestamp = useRef<number | null>(null);
+    const SPEED = 0.0005;
+
+    const animate = (timestamp: number) => {
+        if (lastTimestamp.current === null) lastTimestamp.current = timestamp;
+        const elapsed = (timestamp - lastTimestamp.current) / 1000; // в секундах
+        lastTimestamp.current = timestamp;
+        currentValue.current += SPEED * elapsed;
+        if (amountRef.current) {
+            amountRef.current.innerText = currentValue.current.toFixed(5);
+        }
+        rafId.current = requestAnimationFrame(animate);
+    };
 
     useEffect(() => {
         const el = amountRef.current;
         if (!el) return;
         el.innerText = startValue.toFixed(5);
+        currentValue.current = startValue;
+        lastTimestamp.current = null;
 
         if (triggerRef.current) {
             triggerRef.current.kill();
@@ -28,41 +43,28 @@ const AnimatedBalance: React.FC<AnimatedBalanceProps> = ({ startValue, endValue,
             trigger: containerRef.current,
             start: 'top 90%',
             onEnter: () => {
-                gsap.fromTo(el, {
-                    innerText: startValue
-                }, {
-                    innerText: endValue,
-                    duration,
-                    ease: 'power2.out',
-                    snap: { innerText: 0.00001 },
-                    onUpdate: function () {
-                        if (el) {
-                            const current = parseFloat(el.innerText);
-                            el.innerText = current.toFixed(5);
-                        }
-                    }
-                });
+                // сброс значения и запуск анимации
+                currentValue.current = startValue;
+                lastTimestamp.current = null;
+                if (amountRef.current) amountRef.current.innerText = startValue.toFixed(5);
+                rafId.current = requestAnimationFrame(animate);
+            },
+            onLeave: () => {
+                // остановить анимацию
+                if (rafId.current) cancelAnimationFrame(rafId.current);
             },
             onLeaveBack: () => {
-                // Reset to start value so it can re-animate
-                if (el) el.innerText = startValue.toFixed(5);
+                // остановить анимацию и сбросить значение
+                if (rafId.current) cancelAnimationFrame(rafId.current);
+                currentValue.current = startValue;
+                if (amountRef.current) amountRef.current.innerText = startValue.toFixed(5);
             },
             onEnterBack: () => {
-                // Replay animation when scrolling back
-                gsap.fromTo(el, {
-                    innerText: startValue
-                }, {
-                    innerText: endValue,
-                    duration,
-                    ease: 'power2.out',
-                    snap: { innerText: 0.00001 },
-                    onUpdate: function () {
-                        if (el) {
-                            const current = parseFloat(el.innerText);
-                            el.innerText = current.toFixed(5);
-                        }
-                    }
-                });
+                // сброс значения и запуск анимации
+                currentValue.current = startValue;
+                lastTimestamp.current = null;
+                if (amountRef.current) amountRef.current.innerText = startValue.toFixed(5);
+                rafId.current = requestAnimationFrame(animate);
             }
         });
 
@@ -70,8 +72,11 @@ const AnimatedBalance: React.FC<AnimatedBalanceProps> = ({ startValue, endValue,
             if (triggerRef.current) {
                 triggerRef.current.kill();
             }
+            if (rafId.current) {
+                cancelAnimationFrame(rafId.current);
+            }
         };
-    }, [startValue, endValue, duration]);
+    }, [startValue]);
 
     return (
         <div className="balance-overlay" ref={containerRef}>

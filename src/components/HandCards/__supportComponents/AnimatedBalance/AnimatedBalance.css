@@ -1,6 +1,6 @@
 .balance-overlay {
     position: absolute;
-    bottom: 22%;
+    bottom: 19%;
     left: 60%;
     transform: translateX(-50%);
     display: flex;
@@ -27,7 +27,7 @@
 @media (max-width: 968px) {
     .balance-overlay {
         left: 205px !important;
-        bottom: 70px !important;
+        bottom: 55px !important;
     }
 
     .balance-amount,

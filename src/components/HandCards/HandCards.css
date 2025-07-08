@@ -48,29 +48,6 @@
   letter-spacing: -1.26px;
 }
 
-.balance-overlay {
-  position: absolute;
-  bottom: 22%;
-  left: 60%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: baseline;
-  gap: 4px;
-  z-index: 2;
-  white-space: nowrap;
-  flex-wrap: nowrap;
-}
-
-.balance-amount,
-.balance-currency {
-  font-size: 22px;
-  font-weight: 500;
-  line-height: 160%;
-  color: #000;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
 @media (max-width: 1150px) {
   .hand-cards-content {
     gap: 60px;

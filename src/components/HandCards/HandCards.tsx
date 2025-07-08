@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import handImage from '@assets/images/hand-cards/hand-holding-coin.png';
-import foxImage from '@assets/images/hand-cards/wallet-fox-earning.png';
+import foxImage from '@assets/images/hand-cards/wallet-fox-earning.jpg';
 import waterfallImage from '@assets/images/hand-cards/revenue-streams-waterfall.png';
 import lockImage from '@assets/images/hand-cards/censorship-resistant-lock.png';
 import pyramidImage from '@assets/images/hand-cards/yield-forwarding-pyramids.png';
@@ -16,7 +16,6 @@ import './HandCards.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const HandCards: React.FC = () => {
-  const usdProValues = [5000.02441, 5000.03302];
   const [isMobile, setIsMobile] = useState(window.innerWidth < 968);
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 968);
@@ -32,7 +31,7 @@ const HandCards: React.FC = () => {
       image={foxImage}
       alt="Earn rewards wallet preview"
     >
-      <AnimatedBalance startValue={usdProValues[0]} endValue={usdProValues[1]} />
+      <AnimatedBalance startValue={5000.02441} />
     </HandCard>,
     <HandCard
       key="revenue"
