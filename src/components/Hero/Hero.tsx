@@ -66,10 +66,11 @@ const Hero: React.FC = () => {
         <div className="hero-container">
           <div className="hero-content">
             <h1>
-              The Stablecoin <br /> that powers passive income.
+              <span className="highlight">StableUnit</span><br/>
+              Hold once, Earn twice
             </h1>
             <p>
-              Leverage your DeFi portfolio by borrowing USD Pro — non-rebasing yield bearing stable with robust $1 peg.
+              Stablecoin with passive rewards in your wallet, plus bonus APR when used in DeFi. Buy or borrow against BTC/ETH or LP tokens, with optional liquidation insurance.
             </p>
             <form onSubmit={handleSubmit} className="hero-form">
               <input
@@ -89,7 +90,7 @@ const Hero: React.FC = () => {
 
         <div className="hero-partners">
           <div className="partners-label">
-            <span>Backed by</span>
+            <span>Crypto-native funds</span>
           </div>
           <div className="partners-scroll-container">
             <div className="partners-track">
@@ -119,7 +120,7 @@ const Hero: React.FC = () => {
         </div>
         <div className="hero-partners">
           <div className="partners-label">
-            <span>Angels leadership</span>
+            <span>Backed by leaders from</span>
           </div>
           <div className="partners-scroll-container">
             <div className="partners-track-reverse">

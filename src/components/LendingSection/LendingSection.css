@@ -126,11 +126,11 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 26px;
-    letter-spacing: 0%;
+    letter-spacing: 0;
     color: #000000;
     display: flex;
     align-items: center;
-    height: 100%;
+    height: fit-content;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

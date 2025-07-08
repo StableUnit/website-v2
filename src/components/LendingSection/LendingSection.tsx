@@ -21,20 +21,23 @@ const LendingSection: React.FC = () => {
 
   const features = [
     {
-      title: 'Seamless DeFi integrations.',
-      description: 'Provide liquidity to your favorite pairs on top DEXs and yield protocols through StableUnit, all in one click.',
+      title: 'DeFI composability',
+      maxTitleWidth: 130,
+      description: 'Provide liquidity to your favorite pairs on top DEXs and yield protocols through StableUnit, without loosing yield.',
       icon: chainLogo,
       logos: [auraLogo, uniswapLogo, pendleLogo]
     },
     {
-      title: 'Powered by capital-efficient liquidations.',
-      description: 'StableUnit replaces auction-style liquidations with a deterministic, MEV-resistant system to boost capital efficiency.',
+      title: 'Leverage your idle DeFi positions',
+      maxTitleWidth: 250,
+      description: 'Borrow against your LPs, redeploy funds, and scale exposure. Stableunit unlocks dormant capital without extra custodial risk.',
       icon: securityLogo,
       linkText: 'Explore Lending'
     },
     {
-      title: 'Maximum composability in DeFi.',
-      description: 'USD Pro uses a novel, non-rebasing yield model, avoiding common pitfalls and ensuring full DeFi compatibility like any ERC-20 token.',
+      title: 'Passive income and no rebasing',
+      maxTitleWidth: 160,
+      description: 'USD Pro uses a novel non-rebasing yield model, avoiding common pitfalls and ensuring full DeFi composability as an ERC-20 token.',
       icon: desktopCheck,
       linkText: 'Explore USD Pro'
     }
@@ -49,7 +52,7 @@ const LendingSection: React.FC = () => {
               <h2>
                 <span className="highlight">Lending</span> and <span className="highlight">Stablecoin</span>,
               </h2>
-              <h2 className="subtitle">designed as one.</h2>
+              <h2 className="subtitle">designed as one</h2>
             </div>
             <div className="lending-description">
               <p>
@@ -82,7 +85,7 @@ const LendingSection: React.FC = () => {
                 <div key={index} className={`lending-feature-card ${expandedCards.includes(index) ? 'expanded' : ''}`}>
                   <div className="lending-feature-header">
                     <img className="lending-feature-icon" src={feature.icon} alt=""/>
-                    <h3>{feature.title}</h3>
+                    <h3 style={{ maxWidth: `${feature.maxTitleWidth}px` }}>{feature.title}</h3>
                     <button
                         className="mobile-toggle-btn"
                         onClick={() => toggleCard(index)}
