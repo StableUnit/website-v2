@@ -155,6 +155,7 @@
   transition: all 0.3s ease;
   position: relative;
   width: 100%;
+  max-width: 330px;
   min-height: auto;
   box-sizing: border-box;
   overflow: visible;
@@ -190,16 +191,15 @@
 }
 
 .feature-content h3 {
-  font-family: 'TT Interfaces', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   font-size: 18px !important;
   font-weight: 600;
   color: #4A4B4A;
-  line-height: 1;
+  line-height: 120%;
   letter-spacing: 0;
   word-wrap: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
-  max-width: 100%;
+  max-width: 280px;
   display: flex;
   align-items: flex-start;
   gap: 0;
@@ -340,19 +340,6 @@
     opacity: 1;
     margin-top: 0;
   }
-  
-  .tokenomics-feature:hover {
-    transform: translateY(-2px);
-    -webkit-transform: translateY(-2px);
-    -moz-transform: translateY(-2px);
-    -ms-transform: translateY(-2px);
-    -o-transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 183, 134, 0.1);
-    -webkit-box-shadow: 0 8px 20px rgba(0, 183, 134, 0.1);
-    -moz-box-shadow: 0 8px 20px rgba(0, 183, 134, 0.1);
-  }
 }
 
 @media (max-width: 1024px) {
@@ -366,7 +353,7 @@
     display: flex !important;
     flex-direction: column !important;
     grid-template-rows: none !important;
-    align-items: stretch !important;
+    align-items: center !important;
     overflow: visible !important;
   }
 
@@ -385,6 +372,7 @@
     background: transparent;
     width: 100% !important;
     margin-bottom: 0;
+    max-width: none;
   }
 
   .tokenomics-feature:not(.expanded) {
@@ -416,9 +404,12 @@
     min-height: clamp(550px, 70vh, 650px);
   }
 
+  .tokenomics-features {
+    gap: 10px;
+  }
+
   .tokenomics-feature {
     width: 100%;
-    max-width: 343px;
     padding: 20px;
     text-align: left;
     align-items: flex-start;
@@ -698,7 +689,7 @@
 
   .feature-content h3 {
     font-weight: 500;
-    padding-right: 80px;
+    max-width: 250px;
   }
 
   .feature-description {
@@ -706,6 +697,10 @@
     opacity: 0;
     margin-top: 0;
     transition: all 0.3s ease;
+  }
+
+  .feature-description p {
+    font-size: 14px;
   }
 
   .feature-description.visible {

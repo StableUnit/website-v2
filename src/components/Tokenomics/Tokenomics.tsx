@@ -20,7 +20,7 @@ const Tokenomics: React.FC = () => {
       <div className="tokenomics-container">
         <div className="tokenomics-header">
           <span className="tokenomics-label">Tokenomics</span>
-          <h2 className="tokenomics-title">The ultimate governance token.</h2>
+          <h2 className="tokenomics-title">Finite supply governance token</h2>
         </div>
         
         <div className="tokenomics-content">
@@ -33,7 +33,7 @@ const Tokenomics: React.FC = () => {
                 <div className={`tokenomics-feature ${expandedCards[0] ? 'expanded' : ''}`}>
                   <div className="feature-content">
                     <div className="feature-header">
-                      <h3><img src={approvedPersonIcon} alt="User" /> Liquidation <br/> Participation</h3>
+                      <h3><img src={approvedPersonIcon} alt="User" /> Liquidation <br/> participation</h3>
                       <div
                         className="expand-btn mobile-only" 
                         onClick={() => toggleCard(0)}
@@ -51,7 +51,7 @@ const Tokenomics: React.FC = () => {
                 <div className={`tokenomics-feature ${expandedCards[1] ? 'expanded' : ''}`}>
                   <div className="feature-content">
                     <div className="feature-header">
-                      <h3><img src={speedIcon} alt="Speed" className="speed-icon" /> Gauge system to vote for pool incentive</h3>
+                      <h3><img src={speedIcon} alt="Speed" className="speed-icon" />Gauge system to vote for pool incentives</h3>
                       <div
                         className="expand-btn mobile-only" 
                         onClick={() => toggleCard(1)}
@@ -69,7 +69,7 @@ const Tokenomics: React.FC = () => {
                 <div className={`tokenomics-feature ${expandedCards[2] ? 'expanded' : ''}`}>
                   <div className="feature-content">
                     <div className="feature-header">
-                      <h3><img src={securityIcon} alt="Security" /> Governance <br /> Through Staking</h3>
+                      <h3><img src={securityIcon} alt="Security" /> Governance through staking</h3>
                       <div
                         className="expand-btn mobile-only" 
                         onClick={() => toggleCard(2)}

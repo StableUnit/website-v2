@@ -11,7 +11,7 @@ const SecurityAudit: React.FC = () => {
       <div className="security-container">
         <div className="security-header">
           <span className="security-label">Security First</span>
-          <h2 className="security-title">Top audits and a bug-bounty pool.</h2>
+          <h2 className="security-title">Top audits and a bug-bounty pool</h2>
         </div>
 
         <div className="security-content">
@@ -20,9 +20,9 @@ const SecurityAudit: React.FC = () => {
               <div className="safety-text-content">
                 <h3 className="safety-title">We're serious about safety</h3>
                 <p className="safety-description">
-                  StableUnit protects your capital with a live{' '}
-                  <span className="highlight-green">$500k</span> bug-bounty pool and independent audits
-                  giving you layered, 360 security.
+                  Current v3 implementation is based on battle-tested MakerDAO codebase. Multiple security measures of
+                  circuit-breaker, active-monitoring and cumulative <span className="highlight-green">$500k</span> bug
+                  bounty budget provides additional insurance.
                 </p>
               </div>
               <a href="/security" className="learn-more-link">
@@ -43,7 +43,7 @@ const SecurityAudit: React.FC = () => {
           <div className="security-right">
             <div className="security-card bounty-card">
               <div className="bounty-section">
-                <h3 className="bounty-title">$500k bounty</h3>
+                <h3 className="bounty-title">Half-a-million-dollar bug bounty</h3>
 
                 <div className="bounty-items">
                   <div className="bounty-item">
@@ -52,7 +52,7 @@ const SecurityAudit: React.FC = () => {
                       <div className="arbitrum-icon">
                         <img src={arbitrumLogo} alt="Arbitrum"/>
                       </div>
-                      <span className="bounty-text">Arbitrum security grant </span>
+                      <span className="bounty-text">Arbitrum-grant prepayment</span>
                     </div>
                   </div>
 
@@ -75,7 +75,7 @@ const SecurityAudit: React.FC = () => {
                 <p className="audit-description">
                   StableUnit's smart contract suite has passed an in-depth <a href="/audits/decurity" className="audit-link">Decurity</a> audit, with a <a href="/audits/sherlock" className="audit-link">Sherlock</a> review set to commence. These independent checks highlight strong safeguards and offer transparent third-party validation.
                 </p>
-                
+
                 <div className="audit-logos">
                   <div className="audit-logo decurity">
                     <img src={decurity} alt="Decurity" />
