@@ -28,9 +28,9 @@ const Footer: React.FC = () => {
             <div className="footer-column">
               <h3>Resources</h3>
               <ul>
-                <li><a href="/documentation" target="_blank" rel="noopener noreferrer">Documentation</a></li>
-                <li><a href="/audits" target="_blank" rel="noopener noreferrer">Audits</a></li>
-                <li><a href="/brand" target="_blank" rel="noopener noreferrer">Brand Guides</a></li>
+                <li><a href="https://docs.stableunit.org/" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+                <li><a href="https://stableunit.gitbook.io/documentation/extras/resources-and-glossary/official-links-and-resources#audits" target="_blank" rel="noopener noreferrer">Audits</a></li>
+                <li><a href="https://github.com/StableUnit" target="_blank" rel="noopener noreferrer">GitHub</a></li>
               </ul>
             </div>
 
@@ -38,16 +38,14 @@ const Footer: React.FC = () => {
               <h3>Company</h3>
               <ul>
                 <li><a href="/contribute" target="_blank" rel="noopener noreferrer">Contribute</a></li>
-                <li><a href="/jobs" target="_blank" rel="noopener noreferrer">Jobs</a></li>
+                <li><a href="https://level-tamarillo-3c5.notion.site/Job-Board-17c07943f264800f8639d37ffe1b9458" target="_blank" rel="noopener noreferrer">Jobs</a></li>
               </ul>
             </div>
           </div>
         </div>
         <div className="footer-disclaimer">
           <p className="footer-reference">*Provided for reference; Future returns are not assured</p>
-          <p>The suDAO token sale involves risk. It's an experimental asset that may lose all value.
-            This is not investment advice or a promise of returns.
-            Participate only if you meet legal requirements and can afford potential loss.</p>
+          <p style={{ maxWidth: '540px' }}>The suDAO token sale involves risk. It's an experimental asset that may lose all value. This is not investment advice or a promise of returns. Participate only if you meet legal requirements and can afford potential loss.</p>
         </div>
       </footer>
   );

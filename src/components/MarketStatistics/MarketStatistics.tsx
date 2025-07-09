@@ -38,7 +38,7 @@ const MarketStatistics: React.FC = () => {
             <div className="chart-legend">
               <div className="legend-item">
                 <span className="legend-line"></span>
-                <span className="legend-text">Proportion of yield bearing stablecoins out of all stablecoins.</span>
+                <span className="legend-text">Proportion of yield bearing stablecoins out of all stablecoins</span>
               </div>
               <div className="legend-item">
                 <div className="legend-lines">
