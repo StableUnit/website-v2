@@ -38,7 +38,7 @@ const LendingProtocol: React.FC = () => {
   ];
 
   return (
-    <section className="lending-protocol">
+    <section className="lending-protocol" id="lending-protocol">
       <div className="lending-protocol-container">
         <div className="lending-protocol-header">
           <div>

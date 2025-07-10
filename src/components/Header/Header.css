@@ -50,7 +50,7 @@
 
 .nav {
   display: flex;
-  gap: 2px;
+  gap: 20px;
   align-items: center;
   height: 32px;
 }
@@ -272,7 +272,7 @@
 @media (min-width: 769px) and (max-width: 1023px) {
   .nav {
     max-width: 450px;
-    gap: 1px;
+    gap: 15px;
   }
   
   .nav a,
