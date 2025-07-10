@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import handImage from '@assets/images/hand-cards/hand-holding-coin.png';
-import foxImage from '@assets/images/hand-cards/wallet-fox-earning.jpg';
+import foxImage from '@assets/images/hand-cards/wallet-fox-earning.png';
 import waterfallImage from '@assets/images/hand-cards/revenue-streams-waterfall.png';
 import lockImage from '@assets/images/hand-cards/censorship-resistant-lock.png';
 import pyramidImage from '@assets/images/hand-cards/yield-forwarding-pyramids.png';
