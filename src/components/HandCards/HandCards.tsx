@@ -67,7 +67,6 @@ const HandCards: React.FC = () => {
 
   const sectionRef = useRef<HTMLDivElement>(null);
   const cardsContainerRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -98,43 +97,14 @@ const HandCards: React.FC = () => {
       ScrollTrigger.create({
         trigger: usdProLabel,
         start: 'top-=124 top',
-        end: () => `+=${scrollDistance}`,
+        end: () => `+=${scrollDistance - 200}`,
         pin: section,
         pinSpacing: true,
         scrub: true,
         preventOverlaps: true,
         invalidateOnRefresh: true,
-        animation: gsap.to(cardsContainer, { y: -scrollDistance })
+        animation: gsap.to(cardsContainer, { y: -scrollDistance + 200 })
       });
-
-      if (buttonRef.current) {
-        gsap.set(buttonRef.current, { opacity: 0, y: 20 });
-
-        ScrollTrigger.create({
-          trigger: buttonRef.current,
-          start: 'top bottom-=100',
-          onEnter: () => {
-            if (buttonRef.current) {
-              gsap.to(buttonRef.current, {
-                opacity: 1,
-                y: 0,
-                duration: 0.6,
-                ease: 'power2.out'
-              });
-            }
-          },
-          onLeaveBack: () => {
-            if (buttonRef.current) {
-              gsap.to(buttonRef.current, {
-                opacity: 0,
-                y: 20,
-                duration: 0.3,
-                ease: 'power2.in'
-              });
-            }
-          }
-        });
-      }
     }
 
     const handleResize = () => {
@@ -167,26 +137,29 @@ const HandCards: React.FC = () => {
           <img src={handImage} alt="Hand holding coin" className="hand-img" />
         </div>
         <div className="hand-cards-wrapper">
-          <div className="cards-scroll-container">
-            {isMobile ? (
-              <div ref={sliderRef} className="keen-slider cards-inner">
-                {cards.map((card, idx) => (
-                  <div
-                    className="keen-slider__slide"
-                    key={idx}
-                    style={{ width: 335, minWidth: 335 }}
-                  >
-                    {card}
-                  </div>
-                ))}
+          {isMobile ? (
+              <div className="cards-scroll-container">
+                <div ref={sliderRef} className="keen-slider cards-inner">
+                  {cards.map((card, idx) => (
+                      <div
+                          className="keen-slider__slide"
+                          key={idx}
+                          style={{width: 335, minWidth: 335}}
+                      >
+                        {card}
+                      </div>
+                  ))}
+                </div>
+                <div key="cta"><HandCardsCTA/></div>
               </div>
-            ) : (
-              <div className="cards-inner" ref={cardsContainerRef}>
-                {cards}
+          ) : (
+              <div className="cards-scroll-container">
+                <div className="cards-inner" ref={cardsContainerRef}>
+                  {cards}
+                  <div key="cta"><HandCardsCTA/></div>
+                </div>
               </div>
-            )}
-          </div>
-          <div key="cta" ref={buttonRef}><HandCardsCTA /></div>
+          )}
         </div>
       </div>
     </section>
