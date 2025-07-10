@@ -15,6 +15,39 @@ import './HandCards.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const cards = [
+  <HandCard
+      key="earn"
+      title="Earn just by holding"
+      description="Receive rewards in real time. No staking or claiming needed. Compatible with any browser, mobile or hardware wallet."
+      image={foxImage}
+      alt="Earn rewards wallet preview"
+  >
+    <AnimatedBalance startValue={5000.02441} />
+  </HandCard>,
+  <HandCard
+      key="revenue"
+      title="Multiple revenue streams"
+      description="USD Pro’s yield comes from multiple sources: borrowing fees, liquidation gains, and conversion fees when non-yield assets are converted into DeFi positions in one click."
+      image={waterfallImage}
+      alt="Revenue streams visualization"
+  />,
+  <HandCard
+      key="censorship"
+      title="Censorship resistant"
+      description="No one can freeze your USD Pro, ensuring true financial sovereignty and censorship resistance."
+      image={lockImage}
+      alt="Censorship resistance lock"
+  />,
+  <HandCard
+      key="yield"
+      title="Yield forwarding"
+      description="Forward your yield to any address to maintain a clear separation of revenue streams, for compliance, treasury management, or any custom setup."
+      image={pyramidImage}
+      alt="Yield forwarding visualization"
+  />,
+];
+
 const HandCards: React.FC = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 968);
   useEffect(() => {
@@ -23,40 +56,6 @@ const HandCards: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const cards = [
-    <HandCard
-      key="earn"
-      title="Earn just by holding"
-      description="Receive rewards in real time. No staking or claiming needed. Compatible with any browser, mobile or hardware wallet."
-      image={foxImage}
-      alt="Earn rewards wallet preview"
-    >
-      <AnimatedBalance startValue={5000.02441} />
-    </HandCard>,
-    <HandCard
-      key="revenue"
-      title="Multiple revenue streams"
-      description="USD Pro’s yield comes from multiple sources: borrowing fees, liquidation gains, and conversion fees when non-yield assets are converted into DeFi positions in one click."
-      image={waterfallImage}
-      alt="Revenue streams visualization"
-    />,
-    <HandCard
-      key="censorship"
-      title="Censorship resistant"
-      description="No one can freeze your USD Pro, ensuring true financial sovereignty and censorship resistance."
-      image={lockImage}
-      alt="Censorship resistance lock"
-    />,
-    <HandCard
-      key="yield"
-      title="Yield forwarding"
-      description="Forward your yield to any address to maintain a clear separation of revenue streams, for compliance, treasury management, or any custom setup."
-      image={pyramidImage}
-      alt="Yield forwarding visualization"
-    />,
-  ];
-
-  // keen-slider only for mobile
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     slides: {
       perView: 'auto', // use actual slide width
