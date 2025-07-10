@@ -39,7 +39,6 @@
 }
 
 .hand-cards-section,
-.cards-inner,
 .scroll-card {
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
@@ -131,21 +130,6 @@
   overflow: hidden;
   padding: 0;
   contain: layout style paint;
-}
-
-.cards-inner {
-  position: absolute;
-  top: 0;
-  will-change: transform;
-  left: 0;
-  right: min(140px, max(20px, 9.72vw));
-  padding: clamp(60px, 8vh, 100px) 0 0 0;
-  -moz-backface-visibility: hidden;
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  contain: layout style;
 }
 
 /* Base Card Styles */
@@ -467,10 +451,6 @@
   .hand-fixed {
     padding-left: 140px;
   }
-  
-  .cards-inner {
-    right: 140px;
-  }
 }
 
 @media (max-width: 1280px) {
@@ -550,16 +530,6 @@
     height: auto;
     min-height: auto;
     overflow: hidden;
-  }
-  
-  .cards-inner {
-    position: relative;
-    padding: 20px 0;
-    width: 400%;
-    max-width: none;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
   }
   
   .scroll-card,
@@ -652,14 +622,7 @@
   .hand-img {
     max-width: 250px;
   }
-  
-  .cards-inner {
-    padding: 15px 0;
-    width: 400%;
-    display: flex;
-    flex-direction: row;
-  }
-  
+
   .scroll-card {
     width: calc(25% - 16px);
     margin: 0 8px;
@@ -816,11 +779,7 @@
   .hand-img {
     max-width: 200px;
   }
-  
-  .cards-inner {
-    padding: 10px 0;
-  }
-  
+
   .scroll-card {
     padding: 15px;
     min-height: 50vh;
@@ -925,38 +884,5 @@
   .balance-amount,
   .balance-currency {
     font-size: 13px;
-  }
-}
-
-/* WebKit Performance Optimizations */
-@supports (-webkit-appearance: none) {
-  .cards-inner,
-  .scroll-card,
-  .cards-scroll-container {
-    -webkit-transform: translateZ(0);
-    -webkit-perspective: 1000;
-    transform: translateZ(0);
-  }
-  
-  .hand-cards-section {
-    -webkit-font-smoothing: antialiased;
-  }
-  
-  .scroll-card img {
-    -webkit-transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    transform: translateZ(0);
-    will-change: transform;
-    image-rendering: -webkit-optimize-contrast;
-  }
-  
-  .cards-inner {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-  
-  .hand-cards-section,
-  .cards-scroll-container {
-    -webkit-overflow-scrolling: touch;
   }
 }

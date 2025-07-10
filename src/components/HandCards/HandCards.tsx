@@ -13,56 +13,38 @@ gsap.registerPlugin(ScrollTrigger);
 const HandCards: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const cardsContainerRef = useRef<HTMLDivElement>(null);
-  const balanceRef = useRef<HTMLSpanElement>(null);
-  const buttonRef = useRef<HTMLDivElement>(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const [currentCardIndex, setCurrentCardIndex] = useState(0);
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
-
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 968);
   useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth <= 1024);
-    };
-    
-    checkIsMobile();
-    window.addEventListener('resize', checkIsMobile);
-    
+    const handleResize = () => setIsMobile(window.innerWidth < 968);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  useEffect(() => {
     const section = sectionRef.current;
     const cardsContainer = cardsContainerRef.current;
-    
-    if (!section || !cardsContainer) {
-      return () => window.removeEventListener('resize', checkIsMobile);
-    }
-
-    const getViewportHeight = () => {
-      return window.visualViewport?.height || window.innerHeight;
-    };
 
     const calculateScrollDistance = () => {
-      const cardsHeight = cardsContainer.scrollHeight;
-      const containerHeight = getViewportHeight();
-      const isMobile = window.innerWidth <= 1024;
-      
-      if (isMobile) {
+      if (isMobile || !cardsContainer) {
         return 0;
       }
-      
+
+      const containerHeight = window.visualViewport?.height || window.innerHeight;
+      const cardsHeight = cardsContainer.scrollHeight;
+
       // Add extra space to show the full last card and button
       return Math.max(cardsHeight - containerHeight + 250, 100);
     };
 
     const scrollDistance = calculateScrollDistance();
-    
-    const usdProLabel = section.querySelector('.usd-pro-label');
-    
-    if (!isMobile && scrollDistance > 0) {
-      gsap.set(cardsContainer, { 
+
+    const usdProLabel = section?.querySelector('.usd-pro-label');
+
+    if (!isMobile && scrollDistance > 0 && usdProLabel) {
+      gsap.set(cardsContainer, {
         y: 0,
-        force3D: false
+        force3D: true
       });
-      
+
       ScrollTrigger.create({
         trigger: usdProLabel,
         start: 'top-=124 top',
@@ -72,70 +54,9 @@ const HandCards: React.FC = () => {
         scrub: true,
         preventOverlaps: true,
         invalidateOnRefresh: true,
-        animation: gsap.to(cardsContainer, {
-          y: -scrollDistance,
-          ease: "none"
-        })
+        animation: gsap.to(cardsContainer, { y: -scrollDistance })
       });
-    }
 
-    if (balanceRef.current) {
-      if (!hasAnimated) {
-        balanceRef.current.innerText = '0.00000';
-      }
-      
-      ScrollTrigger.create({
-        trigger: balanceRef.current,
-        start: 'top 90%',
-        once: true,
-        onEnter: () => {
-          if (!hasAnimated && balanceRef.current) {
-            setHasAnimated(true);
-            const targetValue = balanceRef.current.getAttribute('data-value') || '5000.02441';
-            gsap.to(balanceRef.current, {
-              innerText: parseFloat(targetValue),
-              duration: 2,
-              ease: 'power2.out',
-              snap: { innerText: 0.00001 },
-              onUpdate: function() {
-                if (balanceRef.current) {
-                  const current = parseFloat(balanceRef.current.innerText);
-                  balanceRef.current.innerText = current.toFixed(5);
-                }
-              }
-            });
-          }
-        }
-      });
-    }
-
-    if (buttonRef.current) {
-      gsap.set(buttonRef.current, { opacity: 0, y: 20 });
-      
-      ScrollTrigger.create({
-        trigger: buttonRef.current,
-        start: 'top bottom-=100',
-        onEnter: () => {
-          if (buttonRef.current) {
-            gsap.to(buttonRef.current, {
-              opacity: 1,
-              y: 0,
-              duration: 0.6,
-              ease: 'power2.out'
-            });
-          }
-        },
-        onLeaveBack: () => {
-          if (buttonRef.current) {
-            gsap.to(buttonRef.current, {
-              opacity: 0,
-              y: 20,
-              duration: 0.3,
-              ease: 'power2.in'
-            });
-          }
-        }
-      });
     }
 
     const handleResize = () => {
@@ -143,62 +64,19 @@ const HandCards: React.FC = () => {
     };
 
     window.addEventListener('resize', handleResize);
-    
+
     window.addEventListener('orientationchange', () => {
       setTimeout(() => {
         ScrollTrigger.refresh();
       }, 100);
     });
 
-    if (isMobile && cardsContainer) {
-      const handleTouchStart = (e: TouchEvent) => {
-        setTouchEnd(null);
-        setTouchStart(e.targetTouches[0].clientX);
-      };
-
-      const handleTouchMove = (e: TouchEvent) => {
-        setTouchEnd(e.targetTouches[0].clientX);
-      };
-
-      const handleTouchEnd = () => {
-        if (!touchStart || !touchEnd) return;
-        
-        const distance = touchStart - touchEnd;
-        const isLeftSwipe = distance > 50;
-        const isRightSwipe = distance < -50;
-        
-        const totalCards = 4;
-        
-        if (isLeftSwipe && currentCardIndex < totalCards - 1) {
-          setCurrentCardIndex(prev => prev + 1);
-        }
-        if (isRightSwipe && currentCardIndex > 0) {
-          setCurrentCardIndex(prev => prev - 1);
-        }
-      };
-
-      cardsContainer.addEventListener('touchstart', handleTouchStart, { passive: true });
-      cardsContainer.addEventListener('touchmove', handleTouchMove, { passive: true });
-      cardsContainer.addEventListener('touchend', handleTouchEnd, { passive: true });
-
-      return () => {
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        window.removeEventListener('resize', handleResize);
-        window.removeEventListener('orientationchange', handleResize);
-        window.removeEventListener('resize', checkIsMobile);
-        cardsContainer.removeEventListener('touchstart', handleTouchStart);
-        cardsContainer.removeEventListener('touchmove', handleTouchMove);
-        cardsContainer.removeEventListener('touchend', handleTouchEnd);
-      };
-    }
-
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('orientationchange', handleResize);
-      window.removeEventListener('resize', checkIsMobile);
     };
-  }, [hasAnimated, currentCardIndex, touchStart, touchEnd, isMobile]);
+  }, [isMobile]);
 
   return (
     <section id="usdpro" ref={sectionRef} className="hand-cards-section">
@@ -212,10 +90,7 @@ const HandCards: React.FC = () => {
       
       <div className="hand-cards-wrapper">
         <div className="cards-scroll-container">
-          <div ref={cardsContainerRef} className="cards-inner" style={{
-            transform: isMobile ? `translateX(-${currentCardIndex * 25}%)` : undefined,
-            transition: isMobile ? 'transform 0.3s ease-out' : undefined
-          }}>
+          <div ref={cardsContainerRef}>
             <div className="scroll-card earn-card">
               <div className="earn-header">
                 <h3>Earn just by holding.</h3>
@@ -224,7 +99,7 @@ const HandCards: React.FC = () => {
               <div className="wallet-container">
                 <img src={foxImage} alt="Earn rewards wallet preview" className="wallet-image" />
                 <div className="balance-overlay">
-                  <span ref={balanceRef} className="balance-amount" data-value="5000.02441">0.00000</span>
+                  <span className="balance-amount" data-value="5000.02441">0.00000</span>
                   <span className="balance-currency">USD Pro</span>
                 </div>
               </div>
@@ -256,7 +131,7 @@ const HandCards: React.FC = () => {
                 <img src={pyramidImage} alt="Yield forwarding visualization" className="yield-image" />
               </div>
             </div>
-            <div ref={buttonRef} className="bottom-cta">
+            <div className="bottom-cta">
               <button className="get-usd-pro-btn">
                 Get USD Pro
                 <svg className="btn-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
