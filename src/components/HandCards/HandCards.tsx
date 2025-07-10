@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import handImage from '@assets/images/hand-cards/hand-holding-coin.png';
@@ -55,7 +55,6 @@ const HandCards: React.FC = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     slides: {
       perView: 'auto', // use actual slide width
@@ -66,8 +65,99 @@ const HandCards: React.FC = () => {
     rubberband: false,
   });
 
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const cardsContainerRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const cardsContainer = cardsContainerRef.current;
+
+    const calculateScrollDistance = () => {
+      if (isMobile || !cardsContainer) {
+        return 0;
+      }
+
+      const containerHeight = window.visualViewport?.height || window.innerHeight;
+      const cardsHeight = cardsContainer.scrollHeight;
+
+      // Add extra space to show the full last card and button
+      return Math.max(cardsHeight - containerHeight + 250, 100);
+    };
+
+    const scrollDistance = calculateScrollDistance();
+
+    const usdProLabel = section?.querySelector('.usd-pro-label');
+
+    if (!isMobile && scrollDistance > 0 && usdProLabel) {
+      gsap.set(cardsContainer, {
+        y: 0,
+        force3D: true
+      });
+
+      ScrollTrigger.create({
+        trigger: usdProLabel,
+        start: 'top-=124 top',
+        end: () => `+=${scrollDistance}`,
+        pin: section,
+        pinSpacing: true,
+        scrub: true,
+        preventOverlaps: true,
+        invalidateOnRefresh: true,
+        animation: gsap.to(cardsContainer, { y: -scrollDistance })
+      });
+
+      if (buttonRef.current) {
+        gsap.set(buttonRef.current, { opacity: 0, y: 20 });
+
+        ScrollTrigger.create({
+          trigger: buttonRef.current,
+          start: 'top bottom-=100',
+          onEnter: () => {
+            if (buttonRef.current) {
+              gsap.to(buttonRef.current, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                ease: 'power2.out'
+              });
+            }
+          },
+          onLeaveBack: () => {
+            if (buttonRef.current) {
+              gsap.to(buttonRef.current, {
+                opacity: 0,
+                y: 20,
+                duration: 0.3,
+                ease: 'power2.in'
+              });
+            }
+          }
+        });
+      }
+    }
+
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    window.addEventListener('orientationchange', () => {
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
+    };
+  }, [isMobile]);
+
   return (
-    <section id="usdpro" className="hand-cards-section">
+    <section id="usdpro" ref={sectionRef} className="hand-cards-section">
       <div className="hand-cards-content">
         <div className="hand-fixed">
           <div className="hand-content">
@@ -91,12 +181,12 @@ const HandCards: React.FC = () => {
                 ))}
               </div>
             ) : (
-              <div className="cards-inner">
+              <div className="cards-inner" ref={cardsContainerRef}>
                 {cards}
               </div>
             )}
           </div>
-          <div key="cta"><HandCardsCTA /></div>
+          <div key="cta" ref={buttonRef}><HandCardsCTA /></div>
         </div>
       </div>
     </section>

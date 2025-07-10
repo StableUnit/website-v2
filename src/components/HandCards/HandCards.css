@@ -48,6 +48,10 @@
   letter-spacing: -1.26px;
 }
 
+.pin-spacer {
+  display: none;
+}
+
 @media (max-width: 1150px) {
   .hand-cards-content {
     gap: 60px;
