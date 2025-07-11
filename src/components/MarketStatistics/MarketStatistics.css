@@ -64,6 +64,7 @@
 
 .market-header .highlight {
   color: #00B786;
+  text-decoration: none;
 }
 
 .market-header .highlight-text {

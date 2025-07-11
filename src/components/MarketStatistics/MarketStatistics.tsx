@@ -10,13 +10,13 @@ const MarketStatistics: React.FC = () => {
             <h2>Join growing market</h2>
             <div className="market-content">
               <p>
-                Over <span className="highlight">30% of ETH</span> is staked, with{' '}
-                <span className="highlight">roughly half</span> of it via yield-bearing tokens (LSTs).
-                In contrast, under <b>5%</b> of stablecoins earn yield. With projections from <span className="highlight">Goldman
-                Sachs</span> and <span className="highlight">Citi</span> expecting
+                Over <a href="https://www.ainvest.com/news/ethereum-staking-reaches-28-3-total-supply-valued-84-billion-2506" target="_blank" className="highlight">30% of ETH</a> is staked, with{' '}
+                <a href="https://defillama.com/lst" target="_blank" className="highlight">roughly half</a> of it via yield-bearing tokens (LSTs).
+                In contrast, under <b>5%</b> of stablecoins earn yield. With projections from <a href="https://www.goldmansachs.com/" target="_blank" className="highlight">Goldman
+                Sachs</a> and <a href="https://www.citi.com/" target="_blank" className="highlight">Citi</a> expecting
                 stablecoins to surpass <b>$1T</b> in five years, the market for yield-bearing assets is set to grow rapidly.
               </p>
-              <a href="#dao" className="get-involved-link desktop-button">
+              <a href="https://forms.gle/onSuQXUJUDL1T5989" className="get-involved-link desktop-button">
                 Get involved 
                 <svg className="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="#00B786" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

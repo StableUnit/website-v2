@@ -73,16 +73,16 @@ const SecurityAudit: React.FC = () => {
               <div className="audit-section">
                 <h4 className="audit-title">Audited by:</h4>
                 <p className="audit-description">
-                  StableUnit's smart contract suite has passed an in-depth <a href="/audits/decurity" className="audit-link">Decurity</a> audit, with a <a href="/audits/sherlock" className="audit-link">Sherlock</a> review set to commence. These independent checks highlight strong safeguards and offer transparent third-party validation.
+                  StableUnit's smart contract suite has passed an in-depth <a href="https://stableunit.gitbook.io/documentation/extras/resources-and-glossary/official-links-and-resources#audits" target="_blank" className="audit-link">Decurity</a> audit, with a <a href="https://stableunit.gitbook.io/documentation/extras/resources-and-glossary/official-links-and-resources#audits" target="_blank" className="audit-link">Sherlock</a> review set to commence. These independent checks highlight strong safeguards and offer transparent third-party validation.
                 </p>
 
                 <div className="audit-logos">
-                  <div className="audit-logo decurity">
+                  <a href="https://www.decurity.io/" target="_blank" className="audit-logo decurity">
                     <img src={decurity} alt="Decurity" />
-                  </div>
-                  <div className="audit-logo sherlock">
+                  </a>
+                  <a href="https://www.sherlock.xyz/" target="_blank" className="audit-logo sherlock">
                     <img src={sherlock} alt="Sherlock" />
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>

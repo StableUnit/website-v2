@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
 import logo from '@assets/images/header/stableunit-logo.svg';
-import Modal from '../Modal/Modal.tsx';
 
 const Header: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileMenuClosing, setIsMobileMenuClosing] = useState(false);
 
@@ -176,16 +174,15 @@ const Header: React.FC = () => {
             <button onClick={() => scrollToSection('usdpro')}>USDPro</button>
             <button onClick={() => scrollToSection('dao')}>DAO</button>
             <button onClick={() => scrollToSection('faq')}>FAQ</button>
-            <button onClick={() => scrollToSection('jobs')}>Jobs</button>
             <div className="nav-dropdown">
               <span>Community <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg></span>
             </div>
           </nav>
-          <button className="join-btn" onClick={() => setIsModalOpen(true)}>
+          <a href="https://forms.gle/onSuQXUJUDL1T5989" target="_blank" className="join-btn">
             Join Public Sale
-          </button>
+          </a>
         </div>
 
         <div className="header-container mobile-header">
@@ -193,9 +190,9 @@ const Header: React.FC = () => {
             <img src={logo} alt="StableVault" />
           </div>
           <div className="mobile-actions">
-            <button className="join-btn mobile-join-btn" onClick={() => setIsModalOpen(true)}>
+            <a href="https://forms.gle/onSuQXUJUDL1T5989" target="_blank" className="join-btn mobile-join-btn">
               Join waitlist
-            </button>
+            </a>
             <button 
               className={`hamburger-btn ${isMobileMenuOpen ? 'open' : ''}`}
               onClick={toggleMobileMenu}
@@ -219,7 +216,6 @@ const Header: React.FC = () => {
               <button onClick={() => scrollToSection('usdpro')}>USDPro</button>
               <button onClick={() => scrollToSection('dao')}>DAO</button>
               <button onClick={() => scrollToSection('faq')}>FAQ</button>
-              <button onClick={() => scrollToSection('jobs')}>Jobs</button>
               <div className="nav-dropdown" onClick={closeMobileMenu}>
                 <span>Community <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -229,7 +225,6 @@ const Header: React.FC = () => {
           </div>
         )}
       </header>
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 };

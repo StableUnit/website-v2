@@ -298,13 +298,8 @@
 .audit-link {
   color: #00B786;
   text-decoration: none;
-  font-weight: 500;
   border-bottom: 1px solid transparent;
   transition: border-bottom-color 0.2s ease;
-}
-
-.audit-link:hover {
-  border-bottom-color: #00B786;
 }
 
 .audit-logos {

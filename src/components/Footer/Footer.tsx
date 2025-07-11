@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
               <h3>Community</h3>
               <ul>
                 <li><a href="https://x.com/stableunit" target="_blank" rel="noopener noreferrer">X.com</a></li>
-                <li><a href="https://discord.gg/stableunit" target="_blank" rel="noopener noreferrer">Discord</a></li>
+                <li><a href="https://discord.com/invite/WrCrCW6F4c" target="_blank" rel="noopener noreferrer">Discord</a></li>
                 <li><a href="https://t.me/stableunit" target="_blank" rel="noopener noreferrer">Telegram</a></li>
               </ul>
             </div>

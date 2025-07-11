@@ -77,7 +77,7 @@ const LendingSection: React.FC = () => {
               <p>
                 The battle-tested collateralized debt position model connects every layer of the system – collateral selection, loan issuance, and yield distribution – <span className="highlight-dao">allowing the DAO to grow both the lending protocol and the stablecoin, each reinforcing the other.</span>
               </p>
-              <a href="/docs/lending" className="learn-more-link">
+              <a href="https://stableunit.gitbook.io/documentation" target="_blank" className="learn-more-link">
                 <div className="learn-more-arrow">
                   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="32" height="32" rx="16" fill="white" />

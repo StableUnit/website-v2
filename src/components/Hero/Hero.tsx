@@ -19,28 +19,7 @@ const Hero: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    try {
-      // Production-ready email submission
-      const response = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      if (response.ok) {
-        // Clear the form on successful submission
-        setEmail('');
-        // You could add a success notification here
-      } else {
-        // Handle error - you could show an error message to the user
-        throw new Error('Failed to join waitlist');
-      }
-    } catch {
-      // In production, you'd want to show a user-friendly error message
-      // For now, we'll just silently fail
-    }
+    window.open("https://forms.gle/onSuQXUJUDL1T5989", "_blank");
   };
 
   const partners = [
@@ -78,7 +57,6 @@ const Hero: React.FC = () => {
                 placeholder="Enter email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
               />
               <button type="submit">Join waitlist</button>
             </form>

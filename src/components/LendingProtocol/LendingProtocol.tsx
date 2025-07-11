@@ -69,7 +69,7 @@ const LendingProtocol: React.FC = () => {
         </div>
 
         <div className="mobile-borrow-container">
-          <a href="/app" className="borrow-link borrow-link-mobile">
+          <a href="https://app.stableunit.org/borrow" target="_blank" className="borrow-link borrow-link-mobile">
             Borrow now
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 7H12M12 7L6 1M12 7L6 13" stroke="#00B786" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
