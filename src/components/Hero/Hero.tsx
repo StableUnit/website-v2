@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    window.open("https://forms.gle/onSuQXUJUDL1T5989", "_blank");
+    window.open("https://forms.gle/MriJYcF6zUEGLbzh7", "_blank");
   };
 
   const partners = [

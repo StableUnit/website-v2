@@ -16,7 +16,7 @@ const MarketStatistics: React.FC = () => {
                 Sachs</a> and <a href="https://www.citi.com/" target="_blank" className="highlight">Citi</a> expecting
                 stablecoins to surpass <b>$1T</b> in five years, the market for yield-bearing assets is set to grow rapidly.
               </p>
-              <a href="https://forms.gle/onSuQXUJUDL1T5989" className="get-involved-link desktop-button">
+              <a href="https://forms.gle/MriJYcF6zUEGLbzh7" className="get-involved-link desktop-button">
                 Get involved 
                 <svg className="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="#00B786" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

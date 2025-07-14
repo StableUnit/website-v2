@@ -180,7 +180,7 @@ const Header: React.FC = () => {
               </svg></span>
             </div>
           </nav>
-          <a href="https://forms.gle/onSuQXUJUDL1T5989" target="_blank" className="join-btn">
+          <a href="https://forms.gle/MriJYcF6zUEGLbzh7" target="_blank" className="join-btn">
             Join Public Sale
           </a>
         </div>
@@ -190,7 +190,7 @@ const Header: React.FC = () => {
             <img src={logo} alt="StableVault" />
           </div>
           <div className="mobile-actions">
-            <a href="https://forms.gle/onSuQXUJUDL1T5989" target="_blank" className="join-btn mobile-join-btn">
+            <a href="https://forms.gle/MriJYcF6zUEGLbzh7" target="_blank" className="join-btn mobile-join-btn">
               Join waitlist
             </a>
             <button 
