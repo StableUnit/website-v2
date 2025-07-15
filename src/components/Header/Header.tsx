@@ -165,20 +165,15 @@ const Header: React.FC = () => {
     <>
       <header className="header">
         <div className="header-container desktop-header">
-          <div className="logo">
+          <div className="logo" onClick={() => scrollToSection('intro')}>
             <img src={logo} alt="StableVault" />
           </div>
           <nav className="nav">
-            <button onClick={() => scrollToSection('intro')}>Intro</button>
             <button onClick={() => scrollToSection('lending')}>Lending</button>
             <button onClick={() => scrollToSection('usdpro')}>USDPro</button>
             <button onClick={() => scrollToSection('dao')}>DAO</button>
             <button onClick={() => scrollToSection('faq')}>FAQ</button>
-            <div className="nav-dropdown">
-              <span>Community <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg></span>
-            </div>
+            <button onClick={() => scrollToSection('footer')}>Community</button>
           </nav>
           <a href="https://forms.gle/MriJYcF6zUEGLbzh7" target="_blank" className="join-btn">
             Join Public Sale

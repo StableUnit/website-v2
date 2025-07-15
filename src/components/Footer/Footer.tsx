@@ -5,7 +5,7 @@ import './Footer.css';
 
 const Footer: React.FC = () => {
   return (
-      <footer id="jobs" className="footer">
+      <footer id="footer" className="footer">
         <div className="footer-content">
           <div className="footer-logo-section">
             <img src={stableunitLogo} alt="Stableunit" className="footer-logo"/>
@@ -31,14 +31,6 @@ const Footer: React.FC = () => {
                 <li><a href="https://docs.stableunit.org/" target="_blank" rel="noopener noreferrer">Documentation</a></li>
                 <li><a href="https://stableunit.gitbook.io/documentation/extras/resources-and-glossary/official-links-and-resources#audits" target="_blank" rel="noopener noreferrer">Audits</a></li>
                 <li><a href="https://github.com/StableUnit" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-              </ul>
-            </div>
-
-            <div className="footer-column">
-              <h3>Company</h3>
-              <ul>
-                <li><a href="/contribute" target="_blank" rel="noopener noreferrer">Contribute</a></li>
-                <li><a href="https://level-tamarillo-3c5.notion.site/Job-Board-17c07943f264800f8639d37ffe1b9458" target="_blank" rel="noopener noreferrer">Jobs</a></li>
               </ul>
             </div>
           </div>

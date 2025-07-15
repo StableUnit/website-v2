@@ -24,7 +24,7 @@
 .footer-content {
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: var(--footer-gap-xl);
   align-items: start;
   box-sizing: border-box;
@@ -81,7 +81,7 @@
 
 .footer-links {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--footer-gap-lg);
 }
 

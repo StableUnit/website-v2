@@ -45,12 +45,6 @@ const LendingProtocol: React.FC = () => {
             <div className="section-label">Stableunit</div>
             <h2>The efficient lending protocol</h2>
           </div>
-          <a href="/app" className="borrow-link borrow-link-desktop">
-            Borrow now
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 7H12M12 7L6 1M12 7L6 13" stroke="#00B786" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </a>
         </div>
 
         <div className="protocol-features">
@@ -66,15 +60,6 @@ const LendingProtocol: React.FC = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="mobile-borrow-container">
-          <a href="https://app.stableunit.org/borrow" target="_blank" className="borrow-link borrow-link-mobile">
-            Borrow now
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 7H12M12 7L6 1M12 7L6 13" stroke="#00B786" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </a>
         </div>
       </div>
     </section>

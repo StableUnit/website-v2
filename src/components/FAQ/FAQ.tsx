@@ -24,7 +24,7 @@ const FAQ: React.FC = () => {
       answer: <div>StableUnit is designed to be <b>multi-chain from day one</b>. The protocol can be deployed on any EVM-compatible blockchain. The governance and SuDAO token are initially launched on Polygon (an Ethereum sidechain) for efficiency, but USD Pro and the StableUnit smart contracts will also roll out on Ethereum mainnet and other popular chains (like Arbitrum, Optimism, BSC, etc.) based on community demand. Because each instance of StableUnit is over-collateralized on its native chain, USD Pro on different chains remains fully backed without relying on cross-chain bridges (no wrapped tokens needed). This native multi-chain support means users can access USD Pro and borrow against assets on the chain of their choice, while the peg and security are maintained independently on each network.</div>,
     },
     {
-      question: "How USD Pro earn Yield?",
+      question: "How does USD Pro earn Yield?",
       answer: <div>
         When a user wants liquidity, they <b>deposit collateral</b> (e.g., ETH, USDC, or an LP token) into a StableUnit vault
         to <b>borrow USD Pro</b>.<br/>

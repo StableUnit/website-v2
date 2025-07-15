@@ -150,13 +150,11 @@ const HandCards: React.FC = () => {
                       </div>
                   ))}
                 </div>
-                <div key="cta"><HandCardsCTA href={"https://app.stableunit.org/buy"}/></div>
               </div>
           ) : (
               <div className="cards-scroll-container">
                 <div className="cards-inner" ref={cardsContainerRef}>
                   {cards}
-                  <div key="cta"><HandCardsCTA href={"https://app.stableunit.org/buy"}/></div>
                 </div>
               </div>
           )}
