@@ -31,7 +31,9 @@ const cards = [
       description="USD Pro’s yield comes from multiple sources: borrowing fees, liquidation gains, and conversion fees when non-yield assets are converted into DeFi positions in one click."
       image={waterfallImage}
       alt="Revenue streams visualization"
-  />,
+  >
+    <a href="https://stableunit.gitbook.io/documentation/introduction/how-does-it-work" className="hand-cards-href" target="_blank">Learn more</a>
+  </HandCard>,
   <HandCard
       key="censorship"
       title="Censorship resistant"

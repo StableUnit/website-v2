@@ -27,6 +27,21 @@
   gap: 133px;
 }
 
+.hand-cards-href {
+  font-size: 18px;
+  color: #666666;
+  line-height: 140%;
+  margin: 0;
+  font-weight: 400;
+  transition: opacity 200ms ease;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
 .cards-scroll-container {
   height: 100vh;
 }
